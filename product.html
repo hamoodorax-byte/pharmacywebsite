@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <title>تفاصيل المنتج - الصيدلية الإلكترونية</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Pharmacy</div>
+    <nav>
+      <a href="index.html">الرئيسية</a>
+      <a href="products.html">المنتجات</a>
+      <a href="cart.html">سلة التسوق</a>
+      <a href="checkout.html">الدفع</a>
+      <a href="admin.html">الإدارة</a>
+    </nav>
+  </header>
+
+  <div class="main-container">
+
+    <div class="card">
+      <h2>تفاصيل المنتج</h2>
+    </div>
+
+    <div class="card" style="display: flex; gap: 20px; align-items: flex-start;">
+
+      <!-- معرض الصور -->
+      <div style="width: 40%;">
+
+        <!-- الصورة الرئيسية -->
+        <img id="mainImage"
+             src="assets/images/paracetamol.jpeg"
+             style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
+
+        <!-- الصور المصغرة -->
+        <div style="display: flex; gap: 10px;">
+          <img src="assets/images/paracetamol.jpeg"
+               onclick="changeImage(this.src)"
+               style="width: 30%; border-radius: 6px; cursor: pointer;">
+
+          <img src="assets/images/paracetamol-2.jpeg"
+               onclick="changeImage(this.src)"
+               style="width: 30%; border-radius: 6px; cursor: pointer;">
+
+          <img src="assets/images/paracetamol-3.jpeg"
+               onclick="changeImage(this.src)"
+               style="width: 30%; border-radius: 6px; cursor: pointer;">
+        </div>
+
+      </div>
+
+      <!-- معلومات المنتج -->
+      <div style="width: 60%;">
+
+        <h3>باراسيتامول 500mg</h3>
+
+        <p style="margin: 10px 0; line-height: 1.8;">
+          باراسيتامول هو مسكن للآلام وخافض للحرارة يستخدم لعلاج الصداع، آلام العضلات،
+          آلام الظهر، آلام الأسنان، ونزلات البرد. يعتبر من أكثر الأدوية أمانًا عند استخدامه
+          بالجرعات الموصى بها.
+        </p>
+
+        <h4>المكونات:</h4>
+        <ul style="margin: 10px 0 20px 0; line-height: 1.8;">
+          <li>باراسيتامول 500mg</li>
+          <li>نشا</li>
+          <li>مغنيسيوم ستيرات</li>
+          <li>مكونات غير فعالة</li>
+        </ul>
+
+        <h4>التقييمات:</h4>
+        <p>⭐⭐⭐⭐☆ (4.5 من 5)</p>
+
+        <div style="margin: 20px 0;">
+          <h4>الكمية:</h4>
+          <button onclick="decreaseQty()" style="padding: 5px 10px;">-</button>
+          <span id="qty" style="margin: 0 15px; font-size: 18px;">1</span>
+          <button onclick="increaseQty()" style="padding: 5px 10px;">+</button>
+        </div>
+
+        <div class="price" style="font-size: 20px; margin: 15px 0;">السعر: 40 ريال</div>
+
+        <button class="btn btn-primary" onclick="location.href='cart.html'">إضافة إلى السلة</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>© 2026 الصيدلية الإلكترونية</footer>
+
+  <script>
+    function changeImage(src) {
+      document.getElementById("mainImage").src = src;
+    }
+
+    function increaseQty() {
+      let q = document.getElementById("qty");
+      q.textContent = Number(q.textContent) + 1;
+    }
+
+    function decreaseQty() {
+      let q = document.getElementById("qty");
+      if (Number(q.textContent) > 1) {
+        q.textContent = Number(q.textContent) - 1;
+      }
+    }
+  </script>
+
+</body>
+</html>
