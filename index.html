@@ -1,65 +1,101 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>الصيدلية الإلكترونية - الرئيسية</title>
-   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صيدلية النخبة الإلكترونية | للرعاية الصحية</title>
+    <!-- ربط ملف الستايل الخارجي -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- ربط أيقونات FontAwesome للأشكال الاحترافية -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="logo">Pharmacy</div>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="products.html">المنتجات</a>
-      <a href="cart.html">سلة التسوق</a>
-      <a href="checkout.html">الدفع</a>
-      <a href="admin.html">الإدارة</a>
-    </nav>
-  </header>
 
-  <div class="main-container">
-    <div class="card hero">
-      <div class="hero-text">
-        <h1>ابحث عن دواء أو منتج</h1>
-        <p>تسوق أونلاين من صيدليتك المفضلة، مع توصيل سريع وآمن.</p>
-        <div class="hero-search">
-          <input type="text" placeholder="ابحث عن دواء أو منتج" />
-          <button class="btn btn-primary">تسوق الآن</button>
+    <!-- شريط التنقل العلوي (Navbar) -->
+    <header class="main-header">
+        <div class="top-bar">
+            <p>توصيل مجاني للطلبات فوق 100 ريال السعودي</p>
         </div>
-      </div>
-      <div>
-        <p>صورة توضيحية للمنتجات هنا</p>
-      </div>
-    </div>
+        <div class="nav-container">
+            <div class="logo">Pharmacy<span>Plus</span></div>
+            <div class="search-box">
+                <input type="text" placeholder="ابحث عن الدواء، الفيتامينات، أو منتجات العناية...">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="nav-icons">
+                <a href="cart.html" class="icon-link"><i class="fa-solid fa-basket-shopping"></i><span class="badge">0</span></a>
+                <a href="admin.html" class="icon-link"><i class="fa-solid fa-user-gear"></i></a>
+            </div>
+        </div>
+    </header>
 
-    <div class="card">
-      <h2>أقسام مميزة</h2>
-      <p>مسكنات • فيتامينات • مكملات غذائية • منتجات عناية</p>
-    </div>
+    <!-- سلايدر العروض العلوي (Hero Banner) -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <span class="tag">عروض الأسبوع للمكملات</span>
+            <h1>صحتك ونشاطك يبدآن من هنا</h1>
+            <p>خصومات تصل إلى 30% على أشهر ماركات الفيتامينات العالمية والمحلية.</p>
+            <a href="#products" class="btn-shop">تسوق العروض الآن <i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+    </section>
 
-    <div class="card">
-      <h2>منتجات مميزة</h2>
-      <div class="products-grid">
-        <div class="product-card">
-          <h3>باراسيتامول</h3>
-          <div class="price">100 ريال</div>
-          <button class="btn btn-primary" onclick="location.href='product.html'">عرض المنتج</button>
+    <!-- أقسام التسوق السريعة -->
+    <section class="categories-section">
+        <h2 class="section-title">تسوّق حسب القسم</h2>
+        <div class="categories-grid">
+            <div class="cat-card"><i class="fa-solid fa-capsules"></i><span>الأدوية والمستلزمات</span></div>
+            <div class="cat-card"><i class="fa-solid fa-prescription-bottle-medical"></i><span>الفيتامينات</span></div>
+            <div class="cat-card"><i class="fa-solid fa-pump-medical"></i><span>العناية بالبشرة</span></div>
+            <div class="cat-card"><i class="fa-solid fa-baby"></i><span>العناية بالأم والطفل</span></div>
         </div>
-        <div class="product-card">
-          <h3>فيتامين C</h3>
-          <div class="price">40 ريال</div>
-          <button class="btn btn-primary" onclick="location.href='product.html'">عرض المنتج</button>
-        </div>
-        <div class="product-card">
-          <h3>بانادول اكسترا</h3>
-          <div class="price">15 ريال</div>
-          <button class="btn btn-primary" onclick="location.href='product.html'">عرض المنتج</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <footer>© 2026 الصيدلية الإلكترونية</footer>
+    <!-- شبكة المنتجات (Products Grid) -->
+    <section class="products-section" id="products">
+        <h2 class="section-title">العروض المميزة الحالية</h2>
+        <div class="products-grid">
+            
+            <!-- بطاقة منتج 1 -->
+            <div class="product-card">
+                <div class="badge-discount">خصم 15%</div>
+                <div class="product-img">
+                    <img src="assets/images/panadol.png" alt="بانادول اكسترا">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">المسكنات</span>
+                    <h3 class="product-title">بانادول اكسترا - 500 ملغ (24 قرص)</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="price-box">
+                        <span class="new-price">15.00 ر.س</span>
+                        <span class="old-price">18.00 ر.س</span>
+                    </div>
+                    <button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> إضافة للسلة</button>
+                </div>
+            </div>
+
+            <!-- بطاقة منتج 2 -->
+            <div class="product-card">
+                <div class="badge-discount">أفضل مبيعاً</div>
+                <div class="product-img">
+                    <img src="assets/images/vitaminc.png" alt="فيتامين سي">
+                </div>
+                <div class="product-info">
+                    <span class="product-cat">الفيتامينات</span>
+                    <h3 class="product-title">فيتامين سي الفوار - 1000 ملغ</h3>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="price-box">
+                        <span class="new-price">40.00 ر.س</span>
+                    </div>
+                    <button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> إضافة للسلة</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
 </body>
 </html>

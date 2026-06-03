@@ -1,100 +1,182 @@
-/* تنسيق عام للموقع */
+/* إعادة تعيين الإعدادات الافتراضية وثغرة الخطوط */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Tajawal", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
 }
 
 body {
-  background-color: #f5f7fa;
-  color: #222;
-  direction: rtl;
+    background-color: #f8fafc;
+    color: #334155;
 }
 
-header {
-  background-color: #0f9d58;
-  color: #fff;
-  padding: 15px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* الهيدر وشريط البحث */
+.top-bar {
+    background-color: #15803d;
+    color: white;
+    text-align: center;
+    padding: 6px;
+    font-size: 0.85rem;
 }
 
-header .logo {
-  font-size: 22px;
-  font-weight: 700;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-header nav a {
-  margin-left: 20px;
-  font-size: 15px;
-  color: #fff;
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #16a34a;
+}
+.logo span { color: #1e3a8a; }
+
+.search-box {
+    display: flex;
+    width: 45%;
+}
+.search-box input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #e2e8f0;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    outline: none;
+}
+.search-box button {
+    padding: 10px 20px;
+    background-color: #16a34a;
+    border: none;
+    color: white;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.search-box button:hover { background-color: #15803d; }
+
+.nav-icons { display: flex; gap: 20px; }
+.icon-link {
+    font-size: 1.4rem;
+    color: #475569;
+    position: relative;
+    text-decoration: none;
+}
+.icon-link .badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 50%;
 }
 
-header nav a:hover {
-  text-decoration: underline;
+/* بنر العروض (Hero Banner) */
+.hero-banner {
+    background: linear-gradient(135deg, rgba(22, 163, 74, 0.1), rgba(30, 58, 138, 0.05)), url('https://images.unsplash.com/photo-1631549916768-4119b295f266?q=80&w=1200') no-repeat center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    margin-bottom: 40px;
 }
+.hero-content { max-width: 550px; }
+.hero-content .tag {
+    background-color: #dcfce7;
+    color: #15803d;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+.hero-content h1 { font-size: 2.5rem; color: #1e3a8a; margin: 15px 0; }
+.hero-content p { color: #64748b; margin-bottom: 25px; }
+.btn-shop {
+    background-color: #16a34a;
+    color: white;
+    text-decoration: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+    transition: 0.3s;
+}
+.btn-shop:hover { transform: translateY(-3px); background-color: #15803d; }
 
-.main-container {
-  max-width: 1100px;
-  margin: 30px auto;
-  padding: 0 15px;
+/* الأقسام السريعة */
+.section-title { text-align: center; margin-bottom: 30px; color: #1e3a8a; font-weight: 700; }
+.categories-grid { display: flex; justify-content: center; gap: 20px; padding: 0 5%; margin-bottom: 50px; }
+.cat-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 170px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: 0.3s;
 }
+.cat-card i { font-size: 2rem; color: #16a34a; margin-bottom: 10px; display: block; }
+.cat-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
 
-.card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  margin-bottom: 20px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-}
-
-.btn-primary {
-  background-color: #0f9d58;
-  color: #fff;
-}
-
-.btn-primary:hover {
-  background-color: #0c7a44;
-}
-
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 15px;
-}
+/* كروت المنتجات الاحترافية */
+.products-section { padding: 0 5% 50px 5%; }
+.products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px; }
 
 .product-card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    border: 1px solid #f1f5f9;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product-card:hover { box-shadow: 0 15px 25px rgba(0,0,0,0.08); transform: translateY(-5px); }
+
+.badge-discount {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 600;
 }
 
-.product-card h3 {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
+.product-img { text-align: center; margin: 20px 0; height: 160px; display: flex; align-items: center; justify-content: center; }
+.product-img img { max-height: 100%; max-width: 100%; object-fit: contain; }
 
-.product-card .price {
-  color: #0f9d58;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
+.product-cat { font-size: 0.8rem; color: #94a3b8; }
+.product-title { font-size: 0.95rem; color: #334155; margin: 5px 0 10px 0; height: 45px; overflow: hidden; }
 
-footer {
-  text-align: center;
-  padding: 15px;
-  font-size: 13px;
-  color: #777;
+.rating { color: #f59e0b; font-size: 0.8rem; margin-bottom: 10px; }
+.price-box { margin-bottom: 15px; }
+.new-price { font-size: 1.2rem; font-weight: 700; color: #16a34a; }
+.old-price { font-size: 0.9rem; text-decoration: line-through; color: #94a3b8; margin-right: 10px; }
+
+.btn-add-cart {
+    width: 100%;
+    padding: 10px;
+    background-color: #1e3a8a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
 }
+.btn-add-cart:hover { background-color: #15803d; }
