@@ -7,17 +7,34 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* تحسينات إضافية مرنة لشبكة المنتجات */
+        /* تحسينات مرنة مخصصة لشبكة المنتجات */
         .products-section {
             padding: 40px 5%;
             background-color: #f8fafc;
         }
         #products-grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
+            display: flex;
             justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
             margin-top: 20px;
+        }
+        .product-card {
+            background: white; 
+            border: 1px solid #e2e8f0; 
+            border-radius: 12px; 
+            padding: 20px; 
+            width: 280px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+            position: relative; 
+            box-sizing: border-box;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
         .product-card:hover img {
             transform: scale(1.05);
