@@ -9,44 +9,44 @@
     <!-- مكتبة FontAwesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* تحسينات التصميم العام ليتطابق مع واجهات التطبيقات الحديثة */
+        /* تصحيح وإجبار الخلفية العامة */
         body {
-            background-color: #f4f6f9 !important; /* خلفية رمادية فاتحة جداً تبرز الكروت البيضاء */
+            background-color: #f4f6f9 !important;
             margin: 0;
             font-family: system-ui, -apple-system, sans-serif;
         }
         .products-section {
-            padding: 12px !important; /* مسافة جانبية متناسقة مع الشاشات الصغيرة */
+            padding: 12px !important;
+            box-sizing: border-box !important;
+            display: block !important;
         }
         .section-title {
             color: #1e3a8a;
             font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .section-title span {
-            font-size: 0.8rem;
-            color: #64748b;
-            font-weight: normal;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
         }
         
-        /* إجبار المنتجات على الظهور كعمودين متساويين تماماً وبنفس المسافة */
+        /* الحل الجذري: تحويل الشبكة إلى Flexbox مرن ومقاوم للتعارض */
         .products-grid {
-            display: grid !important;
-            grid-template-columns: repeat(2, 1fr) !important; /* عمودين متساويين 50% لكل منهما إجبارياً */
-            gap: 10px !important; /* مسافة ثابتة ومحددة بين المنتجات كالتصميم تماماً */
-            justify-content: center !important;
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important; /* السماح بالعناصر بالنزول عند اكتمال منتجين */
+            gap: 10px !important; /* المسافة الثابتة بين الكرتين */
+            justify-content: flex-start !important;
             width: 100% !important;
             box-sizing: border-box !important;
+            padding: 0 !important;
+            margin: 0 !important;
         }
         
-        /* تصميم الكرت المطابق للصورة تماماً */
+        /* إجبار الكرت على أخذ نصف مساحة الشاشة واقتطاع مسافة الـ Gap */
         .product-card {
             background: #ffffff !important;
-            border-radius: 12px !important; /* زوايا دائرية ناعمة */
+            border-radius: 12px !important;
             padding: 10px !important;
             position: relative !important;
             display: flex !important;
@@ -55,10 +55,15 @@
             box-sizing: border-box !important;
             box-shadow: 0 2px 6px rgba(0,0,0,0.02) !important;
             border: 1px solid #f1f5f9 !important;
-            width: 100% !important; /* جعل الكرت يملأ نصف الشاشة المخصص له */
+            
+            /* السحر هنا: حساب العرض ليكون منتجين في السطر بالضبط */
+            width: calc(50% - 5px) !important; 
+            min-width: calc(50% - 5px) !important;
+            max-width: calc(50% - 5px) !important;
+            margin: 0 !important; /* تصفير أي هوامش خارجية قديمة */
         }
         
-        /* منطقة الصورة والزر العائم */
+        /* تنسيق منطقة الصورة والمحاذاة */
         .image-container {
             position: relative !important;
             text-align: center !important;
@@ -69,14 +74,17 @@
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
+            width: 100% !important;
         }
         .product-card img {
             max-height: 100% !important;
             max-width: 100% !important;
             object-fit: contain !important;
+            display: block !important;
+            margin: 0 auto !important;
         }
         
-        /* زر المفضلة العلوي الدائري النظيف */
+        /* أزرار المفضلة والإضافة العائمة */
         .btn-wishlist {
             position: absolute !important;
             top: 0 !important;
@@ -91,16 +99,13 @@
             align-items: center !important;
             justify-content: center !important;
             cursor: pointer !important;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
             z-index: 5 !important;
         }
-        
-        /* زر إضافة (+) الدائري العائم أسفل الصورة من جهة اليسار */
         .btn-add-float {
             position: absolute !important;
             bottom: -4px !important;
             left: 0 !important;
-            background: #1e56a0 !important; /* لون أزرق مريح متناسق */
+            background: #1e56a0 !important;
             color: #ffffff !important;
             border: none !important;
             width: 30px !important;
@@ -111,17 +116,17 @@
             justify-content: center !important;
             font-size: 1rem !important;
             cursor: pointer !important;
-            box-shadow: 0 3px 6px rgba(30, 86, 160, 0.2) !important;
             z-index: 5 !important;
+            box-shadow: 0 3px 6px rgba(30, 86, 160, 0.2) !important;
         }
         
-        /* شارة الخصم المستطيلة الحمراء العريضة بنص أبيض */
+        /* شارة الخصم */
         .badge-discount-tag {
             background: #e11d48 !important;
             color: #ffffff !important;
-            font-size: 0.68rem !important;
+            font-size: 0.65rem !important;
             font-weight: bold !important;
-            padding: 3px 8px !important;
+            padding: 3px 6px !important;
             border-radius: 20px !important;
             display: inline-block !important;
             align-self: flex-start !important;
@@ -131,7 +136,7 @@
         
         /* تفاصيل النصوص والأسعار */
         .product-title {
-            font-size: 0.82rem !important;
+            font-size: 0.8rem !important;
             color: #334155 !important;
             line-height: 1.4 !important;
             height: 36px !important;
@@ -151,32 +156,33 @@
         .current-price {
             color: #e11d48 !important;
             font-weight: 700 !important;
-            font-size: 0.95rem !important;
+            font-size: 0.9rem !important;
         }
         .old-price {
             color: #94a3b8 !important;
             text-decoration: line-through !important;
-            font-size: 0.75rem !important;
+            font-size: 0.72rem !important;
         }
         .rating-express-row {
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
             margin-top: auto !important;
+            width: 100% !important;
         }
         .rating-box {
             display: flex !important;
             align-items: center !important;
             gap: 2px !important;
             color: #f59e0b !important;
-            font-size: 0.75rem !important;
+            font-size: 0.72rem !important;
             font-weight: bold !important;
         }
         .express-badge {
             background: #ecfdf5 !important;
             color: #10b981 !important;
-            font-size: 0.65rem !important;
-            padding: 2px 5px !important;
+            font-size: 0.62rem !important;
+            padding: 2px 4px !important;
             border-radius: 4px !important;
             font-weight: 600 !important;
         }
@@ -206,7 +212,6 @@
     <section class="products-section">
         <div class="section-title">
             <h2>العروض الحالية المميزة</h2>
-            <span>20 نتيجة</span>
         </div>
         
         <div class="products-grid">
@@ -290,7 +295,5 @@
         </div>
     </section>
 
-    <!-- تم إيقاف الماين لضمان عدم وجود ملف خارجي يفرغ الصفحة أو يغير التنسيق -->
-    <!-- <script src="assets/js/main.js"></script> -->
 </body>
 </html>
