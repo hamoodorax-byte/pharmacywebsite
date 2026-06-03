@@ -6,6 +6,30 @@
     <title>الصيدلية الإلكترونية | النخبة للرعاية الصحية</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* تحسينات إضافية مرنة لشبكة المنتجات */
+        .products-section {
+            padding: 40px 5%;
+            background-color: #f8fafc;
+        }
+        #products-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+        .cat-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+    </style>
 </head>
 <body>
 
@@ -13,47 +37,60 @@
         توصيل مجاني للطلبات فوق 100 ريال سعودي
     </div>
 
-    <header class="main-header" style="background: white; padding: 15px 5%; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000;">
+    <header class="main-header" style="background: white; padding: 15px 5%; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000;">
         <div class="logo" style="font-size: 1.6rem; font-weight: 800; color: #1e3a8a;">
             Pharmacy<span style="color: #16a34a;">Plus</span>
         </div>
         
         <div class="search-box" style="display: flex; align-items: center; background: #f1f5f9; padding: 6px 15px; border-radius: 50px; width: 45%; max-width: 500px;">
-            <input type="text" placeholder="ابحث عن الدواء، الفيتامينات، أو منتجات العناية..." style="width: 100%; border: none; background: transparent; outline: none; padding: 6px; font-size: 0.95rem;">
+            <input type="text" placeholder="ابحث عن الدواء، الفيتامينات، أو منتجات العناية..." style="width: 100%; border: none; background: transparent; outline: none; padding: 6px; font-size: 0.95rem; font-family: inherit;">
             <button style="border: none; background: #16a34a; color: white; padding: 8px 14px; border-radius: 50px; cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
 
-        <div class="nav-icons" style="display: flex; align-items: center; gap: 20px;">
+        <div class="nav-icons" style="display: flex; align-items: center; gap: 25px;">
             <a href="cart.html" class="icon-link" style="color: #1e3a8a; font-size: 1.4rem; position: relative; text-decoration: none;">
                 <i class="fa-solid fa-basket-shopping"></i>
                 <span class="badge" style="position: absolute; top: -8px; right: -10px; background: #ef4444; color: white; font-size: 0.75rem; padding: 2px 6px; border-radius: 50%; font-weight: bold;">0</span>
             </a>
-            <a href="admin.html" class="icon-link" style="color: #1e3a8a; font-size: 1.4rem;"><i class="fa-solid fa-user-gear"></i></a>
+            <a href="admin.html" class="icon-link" style="color: #1e3a8a; font-size: 1.4rem;" title="لوحة الإدارة"><i class="fa-solid fa-user-gear"></i></a>
         </div>
     </header>
 
-    <section class="hero-banner" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 60px 5%; display: flex; align-items: center; justify-content: space-between; min-height: 250px;">
+    <section class="hero-banner" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 60px 5%; display: flex; align-items: center; justify-content: space-between; min-height: 220px; margin-bottom: 20px;">
         <div class="hero-text" style="max-width: 600px;">
             <span style="background: #16a34a; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold;">عروض الأسبوع للمكملات</span>
-            <h1 style="color: #1e3a8a; font-size: 2.5rem; margin: 15px 0;">صحتك ونشاطك يبدآن من هنا</h1>
+            <h1 style="color: #1e3a8a; font-size: 2.5rem; margin: 15px 0; font-weight: 800;">صحتك ونشاطك يبدآن من هنا</h1>
             <p style="color: #475569; font-size: 1.1rem; margin-bottom: 25px;">خصومات تصل إلى 30% على أشهر ماركات الفيتامينات العالمية والمحلية.</p>
-            <a href="#products" class="btn-shop" style="background: #16a34a; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">تسوق العروض الآن <i class="fa-solid fa-arrow-left"></i></a>
+            <a href="#products" class="btn-shop" style="background: #16a34a; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">تسوق العروض الآن <i class="fa-solid fa-arrow-left" style="margin-right: 8px;"></i></a>
         </div>
     </section>
 
-    <section class="categories-section" style="padding: 40px 5%; text-align: center;">
-        <h2 style="color: #1e3a8a; margin-bottom: 30px;">تسوق حسب القسم</h2>
+    <section class="categories-section" style="padding: 30px 5%; text-align: center;">
+        <h2 style="color: #1e3a8a; margin-bottom: 25px; font-weight: 700;">تسوق حسب القسم</h2>
         <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 140px; cursor: pointer;"><i class="fa-solid fa-pills" style="font-size: 2rem; color: #16a34a; margin-bottom: 10px;"></i><p style="font-weight: bold; font-size: 0.9rem;">الأدوية</p></div>
-            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 140px; cursor: pointer;"><i class="fa-solid fa-bottle-droplet" style="font-size: 2rem; color: #16a34a; margin-bottom: 10px;"></i><p style="font-weight: bold; font-size: 0.9rem;">الفيتامينات</p></div>
-            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 140px; cursor: pointer;"><i class="fa-solid fa-pump-medical" style="font-size: 2rem; color: #16a34a; margin-bottom: 10px;"></i><p style="font-weight: bold; font-size: 0.9rem;">العناية بالبشرة</p></div>
-            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 140px; cursor: pointer;"><i class="fa-solid fa-baby" style="font-size: 2rem; color: #16a34a; margin-bottom: 10px;"></i><p style="font-weight: bold; font-size: 0.9rem;">الأم والطفل</p></div>
+            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 150px; cursor: pointer; text-align: center;">
+                <i class="fa-solid fa-pills" style="font-size: 2.2rem; color: #16a34a; margin-bottom: 12px;"></i>
+                <p style="font-weight: bold; font-size: 0.95rem; color: #334155; margin: 0;">الأدوية والمستلزمات</p>
+            </div>
+            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 150px; cursor: pointer; text-align: center;">
+                <i class="fa-solid fa-bottle-droplet" style="font-size: 2.2rem; color: #16a34a; margin-bottom: 12px;"></i>
+                <p style="font-weight: bold; font-size: 0.95rem; color: #334155; margin: 0;">الفيتامينات</p>
+            </div>
+            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 150px; cursor: pointer; text-align: center;">
+                <i class="fa-solid fa-pump-medical" style="font-size: 2.2rem; color: #16a34a; margin-bottom: 12px;"></i>
+                <p style="font-weight: bold; font-size: 0.95rem; color: #334155; margin: 0;">العناية بالبشرة</p>
+            </div>
+            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 150px; cursor: pointer; text-align: center;">
+                <i class="fa-solid fa-baby" style="font-size: 2.2rem; color: #16a34a; margin-bottom: 12px;"></i>
+                <p style="font-weight: bold; font-size: 0.95rem; color: #334155; margin: 0;">الأم والطفل</p>
+            </div>
         </div>
     </section>
 
-    <section class="products-section" id="products" style="padding: 40px 5%;">
-        <h2 style="color: #1e3a8a; text-align: center; margin-bottom: 30px; font-family: inherit;">العروض المميزة الحالية</h2>
-        <div id="products-grid-container" style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
+    <section class="products-section" id="products">
+        <h2 style="color: #1e3a8a; text-align: center; margin-bottom: 30px; font-weight: 700;">العروض المميزة الحالية</h2>
+        
+        <div id="products-grid-container">
             </div>
     </section>
 
