@@ -4,205 +4,205 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الصيدلية الإلكترونية | النخبة للرعاية الصحية</title>
+    <!-- ربط ملف الستايل الأساسي -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- مكتبة FontAwesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* تحسينات التصميم العام ليتطابق مع واجهات التطبيقات الحديثة */
         body {
-            background-color: #f4f6f9; /* خلفية رمادية فاتحة جداً تبرز الكروت البيضاء */
+            background-color: #f4f6f9 !important; /* خلفية رمادية فاتحة جداً تبرز الكروت البيضاء */
             margin: 0;
             font-family: system-ui, -apple-system, sans-serif;
         }
         .products-section {
-            padding: 30px 4%;
+            padding: 12px !important; /* مسافة جانبية متناسقة مع الشاشات الصغيرة */
         }
         .section-title {
             color: #1e3a8a;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         .section-title span {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: #64748b;
             font-weight: normal;
         }
+        
+        /* إجبار المنتجات على الظهور كعمودين متساويين تماماً وبنفس المسافة */
         .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
-            justify-content: center;
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important; /* عمودين متساويين 50% لكل منهما إجبارياً */
+            gap: 10px !important; /* مسافة ثابتة ومحددة بين المنتجات كالتصميم تماماً */
+            justify-content: center !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
         }
+        
         /* تصميم الكرت المطابق للصورة تماماً */
         .product-card {
-            background: #ffffff;
-            border-radius: 16px; /* زوايا دائرية ناعمة */
-            padding: 16px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-sizing: border-box;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #f1f5f9;
+            background: #ffffff !important;
+            border-radius: 12px !important; /* زوايا دائرية ناعمة */
+            padding: 10px !important;
+            position: relative !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            box-sizing: border-box !important;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02) !important;
+            border: 1px solid #f1f5f9 !important;
+            width: 100% !important; /* جعل الكرت يملأ نصف الشاشة المخصص له */
         }
-        .product-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-        }
+        
         /* منطقة الصورة والزر العائم */
         .image-container {
-            position: relative;
-            text-align: center;
-            background: #ffffff;
-            padding: 10px 0;
-            margin-bottom: 12px;
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative !important;
+            text-align: center !important;
+            background: #ffffff !important;
+            padding: 5px 0 !important;
+            margin-bottom: 8px !important;
+            height: 120px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
         }
         .product-card img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
+            max-height: 100% !important;
+            max-width: 100% !important;
+            object-fit: contain !important;
         }
-        /* زر المفضلة العلوي */
+        
+        /* زر المفضلة العلوي الدائري النظيف */
         .btn-wishlist {
-            position: absolute;
-            top: 0;
-            right: 0;
-            background: #ffffff;
-            border: 1px solid #f1f5f9;
-            color: #94a3b8;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            transition: color 0.2s;
+            position: absolute !important;
+            top: 0 !important;
+            right: 0 !important;
+            background: #ffffff !important;
+            border: 1px solid #f1f5f9 !important;
+            color: #94a3b8 !important;
+            width: 28px !important;
+            height: 28px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+            z-index: 5 !important;
         }
-        .btn-wishlist:hover {
-            color: #ef4444;
-        }
-        /* زر إضافة (+) الدائري العائم أسفل الصورة */
+        
+        /* زر إضافة (+) الدائري العائم أسفل الصورة من جهة اليسار */
         .btn-add-float {
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            background: #1e56a0; /* لون أزرق مريح متناسق */
-            color: #ffffff;
-            border: none;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(30, 86, 160, 0.3);
-            transition: background 0.2s, transform 0.2s;
-            z-index: 3;
+            position: absolute !important;
+            bottom: -4px !important;
+            left: 0 !important;
+            background: #1e56a0 !important; /* لون أزرق مريح متناسق */
+            color: #ffffff !important;
+            border: none !important;
+            width: 30px !important;
+            height: 30px !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 1rem !important;
+            cursor: pointer !important;
+            box-shadow: 0 3px 6px rgba(30, 86, 160, 0.2) !important;
+            z-index: 5 !important;
         }
-        .btn-add-float:hover {
-            background: #164073;
-            transform: scale(1.05);
-        }
-        /* شارة الخصم المستطيلة الحمراء العريضة */
+        
+        /* شارة الخصم المستطيلة الحمراء العريضة بنص أبيض */
         .badge-discount-tag {
-            background: #e11d48;
-            color: #ffffff;
-            font-size: 0.78rem;
-            font-weight: bold;
-            padding: 5px 12px;
-            border-radius: 20px;
-            display: inline-block;
-            align-self: flex-start;
-            margin-bottom: 8px;
+            background: #e11d48 !important;
+            color: #ffffff !important;
+            font-size: 0.68rem !important;
+            font-weight: bold !important;
+            padding: 3px 8px !important;
+            border-radius: 20px !important;
+            display: inline-block !important;
+            align-self: flex-start !important;
+            margin-bottom: 6px !important;
+            width: fit-content !important;
         }
+        
         /* تفاصيل النصوص والأسعار */
         .product-title {
-            font-size: 0.95rem;
-            color: #334155;
-            line-height: 1.4;
-            height: 40px;
-            overflow: hidden;
-            margin: 6px 0 12px 0;
-            font-weight: 500;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+            font-size: 0.82rem !important;
+            color: #334155 !important;
+            line-height: 1.4 !important;
+            height: 36px !important;
+            overflow: hidden !important;
+            margin: 4px 0 6px 0 !important;
+            font-weight: 500 !important;
+            display: -webkit-box !important;
+            -webkit-line-clamp: 2 !important;
+            -webkit-box-orient: vertical !important;
         }
         .price-row {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-            margin-bottom: 8px;
+            display: flex !important;
+            align-items: baseline !important;
+            gap: 4px !important;
+            margin-bottom: 6px !important;
         }
         .current-price {
-            color: #e11d48;
-            font-weight: 700;
-            font-size: 1.15rem;
+            color: #e11d48 !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem !important;
         }
         .old-price {
-            color: #94a3b8;
-            text-decoration: line-through;
-            font-size: 0.85rem;
+            color: #94a3b8 !important;
+            text-decoration: line-through !important;
+            font-size: 0.75rem !important;
         }
         .rating-express-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            margin-top: auto !important;
         }
         .rating-box {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            color: #f59e0b;
-            font-size: 0.85rem;
-            font-weight: bold;
+            display: flex !important;
+            align-items: center !important;
+            gap: 2px !important;
+            color: #f59e0b !important;
+            font-size: 0.75rem !important;
+            font-weight: bold !important;
         }
         .express-badge {
-            background: #ecfdf5;
-            color: #10b981;
-            font-size: 0.75rem;
-            padding: 3px 8px;
-            border-radius: 6px;
-            font-weight: 600;
+            background: #ecfdf5 !important;
+            color: #10b981 !important;
+            font-size: 0.65rem !important;
+            padding: 2px 5px !important;
+            border-radius: 4px !important;
+            font-weight: 600 !important;
         }
     </style>
 </head>
 <body>
 
-    <div style="background-color: #15803d; color: white; text-align: center; padding: 8px 0; font-size: 0.9rem; font-weight: bold;">
+    <!-- شريط الإعلان العلوي -->
+    <div style="background-color: #15803d; color: white; text-align: center; padding: 8px 0; font-size: 0.85rem; font-weight: bold;">
         توصيل مجاني للطلبات فوق 100 ريال سعودي
     </div>
 
-    <header class="main-header" style="background: white; padding: 15px 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000;">
-        <div class="logo" style="font-size: 1.5rem; font-weight: 800; color: #1e3a8a;">
+    <!-- شريط التنقل العلوي (Navbar) -->
+    <header class="main-header" style="background: white; padding: 12px 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000;">
+        <div class="logo" style="font-size: 1.3rem; font-weight: 800; color: #1e3a8a;">
             Pharmacy<span style="color: #16a34a;">Plus</span>
         </div>
-        <div class="search-box" style="display: flex; align-items: center; background: #f1f5f9; padding: 6px 15px; border-radius: 50px; width: 45%;">
-            <input type="text" placeholder="ابحث عن المنتجات..." style="width: 100%; border: none; background: transparent; outline: none; padding: 6px; font-size: 0.95rem;">
-            <button style="border: none; background: #16a34a; color: white; padding: 8px 14px; border-radius: 50px; cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <div class="nav-icons" style="display: flex; align-items: center; gap: 20px;">
-            <a href="cart.html" style="color: #1e3a8a; font-size: 1.3rem; position: relative; text-decoration: none;">
+        <div class="nav-icons" style="display: flex; align-items: center; gap: 15px;">
+            <a href="cart.html" style="color: #1e3a8a; font-size: 1.2rem; position: relative; text-decoration: none;">
                 <i class="fa-solid fa-basket-shopping"></i>
-                <span style="position: absolute; top: -8px; right: -10px; background: #ef4444; color: white; font-size: 0.75rem; padding: 2px 6px; border-radius: 50%;">0</span>
+                <span style="position: absolute; top: -6px; right: -8px; background: #ef4444; color: white; font-size: 0.7rem; padding: 1px 5px; border-radius: 50%;">0</span>
             </a>
         </div>
     </header>
 
+    <!-- قســم المنتجات والعروض -->
     <section class="products-section">
         <div class="section-title">
             <h2>العروض الحالية المميزة</h2>
@@ -211,13 +211,14 @@
         
         <div class="products-grid">
             
+            <!-- صنف 1 -->
             <div class="product-card">
                 <div class="image-container">
                     <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
                     <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Panadol" alt="بانادول">
                     <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 15%</div>
+                <div class="badge-discount-tag">وفر 15%</div>
                 <h3 class="product-title">بانادول اكسترا مسكن فعال سريع للألم وخافض حرارة - 24 قرص</h3>
                 <div class="price-row">
                     <span class="current-price">15.00 ريال</span>
@@ -229,13 +230,14 @@
                 </div>
             </div>
 
+            <!-- صنف 2 -->
             <div class="product-card">
                 <div class="image-container">
                     <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
                     <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Vitamin+C" alt="فيتامين سي">
                     <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 20%</div>
+                <div class="badge-discount-tag">وفر 20%</div>
                 <h3 class="product-title">فيتامين سي الفوار غني بالزنك لحماية المناعة اليومية - 20 قرص</h3>
                 <div class="price-row">
                     <span class="current-price">40.00 ريال</span>
@@ -247,13 +249,14 @@
                 </div>
             </div>
 
+            <!-- صنف 3 -->
             <div class="product-card">
                 <div class="image-container">
                     <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
                     <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Eucerin" alt="يوسيرين">
                     <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 22%</div>
+                <div class="badge-discount-tag">وفر 22%</div>
                 <h3 class="product-title">كريم يوسيرين المطور لترطيب وإصلاح حاجز البشرة الجافة 100 مل</h3>
                 <div class="price-row">
                     <span class="current-price">85.00 ريال</span>
@@ -265,13 +268,14 @@
                 </div>
             </div>
 
+            <!-- صنف 4 -->
             <div class="product-card">
                 <div class="image-container">
                     <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
                     <img src="https://placehold.co/200x200/ffffff/1e56a0?text=NAN+Milk" alt="حليب نان">
                     <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 10%</div>
+                <div class="badge-discount-tag">وفر 10%</div>
                 <h3 class="product-title">حليب أطفال نان برو غني بالفيتامينات المرحلة الأولى - 400 جرام</h3>
                 <div class="price-row">
                     <span class="current-price">45.00 ريال</span>
@@ -283,296 +287,10 @@
                 </div>
             </div>
 
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Brufen" alt="بروفين">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 16%</div>
-                <h3 class="product-title">شراب بروفين الفعال خافض للحرارة ومسكن آمن للأطفال</h3>
-                <div class="price-row">
-                    <span class="current-price">12.50 ريال</span>
-                    <span class="old-price">15.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.7</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Omega+3" alt="اوميجا">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 26%</div>
-                <h3 class="product-title">أوميجـا 3 زيت السمك النقي ثلاثي القوة لدعم القلب 60 كبسولة</h3>
-                <div class="price-row">
-                    <span class="current-price">95.00 ريال</span>
-                    <span class="old-price">130.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.9</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=La+Roche" alt="لاروش">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 15%</div>
-                <h3 class="product-title">غسول لـاروش بوزيه إيفاكلار جل رغوي لتنقية البشرة الدهنية</h3>
-                <div class="price-row">
-                    <span class="current-price">120.00 ريال</span>
-                    <span class="old-price">141.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.8</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Avent" alt="ايفينت">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 20%</div>
-                <h3 class="product-title">لهاية فيليبس إيفينت السيليكون اللطيفة فائقة النعومة - قطعتين</h3>
-                <div class="price-row">
-                    <span class="current-price">38.00 ريال</span>
-                    <span class="old-price">48.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.6</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Fevadol" alt="فيفادول">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 15%</div>
-                <h3 class="product-title">أقراص فيفادول سريعة الفعالية لتخفيف الصداع وآلام الجسم</h3>
-                <div class="price-row">
-                    <span class="current-price">11.00 ريال</span>
-                    <span class="old-price">13.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.5</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Centrum" alt="سنتروم">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 21%</div>
-                <h3 class="product-title">مكمل غذائي سنتروم شامل الفيتامينات والمعادن اليومية الأساسية</h3>
-                <div class="price-row">
-                    <span class="current-price">55.00 ريال</span>
-                    <span class="old-price">70.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.8</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Regaine" alt="ريجين">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 15%</div>
-                <h3 class="product-title">بخاخ ريجين المطور بنسبة 5% للمساعدة في إعادة إنبات الشعر</h3>
-                <div class="price-row">
-                    <span class="current-price">160.00 ريال</span>
-                    <span class="old-price">190.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.7</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Pampers" alt="بامبرز">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 12%</div>
-                <h3 class="product-title">حفاضات بامبرز العناية المميزة فائقة الامتصاص مقاس 3</h3>
-                <div class="price-row">
-                    <span class="current-price">75.00 ريال</span>
-                    <span class="old-price">85.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.9</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Clarityn" alt="كلاريتين">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 21%</div>
-                <h3 class="product-title">أقراص كلاريتين المضادة لأعراض حساسية الجيوب الأنفية</h3>
-                <div class="price-row">
-                    <span class="current-price">22.00 ريال</span>
-                    <span class="old-price">28.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.6</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Magnesium" alt="مغنيسيوم">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 15%</div>
-                <h3 class="product-title">مكمل المغنيسيوم بلس لدعم صحة العضلات والاسترخاء العميق</h3>
-                <div class="price-row">
-                    <span class="current-price">34.00 ريال</span>
-                    <span class="old-price">40.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.8</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=QV+Lip" alt="كيو في">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 25%</div>
-                <h3 class="product-title">مرطب الشفاه المغذي والحامي من الجفاف من كيو في الطبي</h3>
-                <div class="price-row">
-                    <span class="current-price">18.00 ريال</span>
-                    <span class="old-price">24.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.7</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Johnson" alt="جونسون">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 15%</div>
-                <h3 class="product-title">بودرة جونسون الكلاسيكية فائقة النعومة وحماية بشرة الأطفال</h3>
-                <div class="price-row">
-                    <span class="current-price">20.00 ريال</span>
-                    <span class="old-price">23.50 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.8</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Contour" alt="كونتور">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 17%</div>
-                <h3 class="product-title">شرائط قياس نسبة السكر في الدم كونتور بلس - 50 شريط قياس</h3>
-                <div class="price-row">
-                    <span class="current-price">115.00 ريال</span>
-                    <span class="old-price">140.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.9</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Zyrtec" alt="زيرتك">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 15%</div>
-                <h3 class="product-title">أقراص زيرتك الفعالة في التخفيف السريع لأعراض البرد والعطاس</h3>
-                <div class="price-row">
-                    <span class="current-price">18.50 ريال</span>
-                    <span class="old-price">21.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.6</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Strepsils" alt="ستربسلز">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 20%</div>
-                <h3 class="product-title">أقراص ستربسلز بنكهة العسل والليمون لتلطيف وعلاج آلام الحلق</h3>
-                <div class="price-row">
-                    <span class="current-price">16.00 ريال</span>
-                    <span class="old-price">20.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.7</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
-                    <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Omron" alt="أومرون">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
-                </div>
-                <div class="badge-discount-tag">حصرياً أونلاين _ وفر 17%</div>
-                <h3 class="product-title">جهاز قياس ضغط الدم أومرون الإلكتروني الرقمي الدقيق للذراع</h3>
-                <div class="price-row">
-                    <span class="current-price">290.00 ريال</span>
-                    <span class="old-price">350.00 ريال</span>
-                </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 5.0</div>
-                    <div class="express-badge">Express</div>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    </body>
+    <!-- تم إيقاف الماين لضمان عدم وجود ملف خارجي يفرغ الصفحة أو يغير التنسيق -->
+    <!-- <script src="assets/js/main.js"></script> -->
+</body>
 </html>
