@@ -3,99 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صيدلية النخبة الإلكترونية | للرعاية الصحية</title>
-    <!-- ربط ملف الستايل الخارجي -->
+    <title>الصيدلية الإلكترونية | النخبة للرعاية الصحية</title>
+    
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- ربط أيقونات FontAwesome للأشكال الاحترافية -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- شريط التنقل العلوي (Navbar) -->
-    <header class="main-header">
-        <div class="top-bar">
-            <p>توصيل مجاني للطلبات فوق 100 ريال السعودي</p>
+    <div style="background-color: #15803d; color: white; text-align: center; padding: 8px 0; font-size: 0.9rem; font-weight: bold;">
+        توصيل مجاني للطلبات فوق 100 ريال سعودي
+    </div>
+
+    <header class="main-header" style="background: white; padding: 15px 5%; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000;">
+        <div class="logo" style="font-size: 1.6rem; font-weight: 800; color: #1e3a8a;">
+            Pharmacy<span style="color: #16a34a;">Plus</span>
         </div>
-        <div class="nav-container">
-            <div class="logo">Pharmacy<span>Plus</span></div>
-            <div class="search-box">
-                <input type="text" placeholder="ابحث عن الدواء، الفيتامينات، أو منتجات العناية...">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
-            <div class="nav-icons">
-                <a href="cart.html" class="icon-link"><i class="fa-solid fa-basket-shopping"></i><span class="badge">0</span></a>
-                <a href="admin.html" class="icon-link"><i class="fa-solid fa-user-gear"></i></a>
-            </div>
+        
+        <div class="search-box" style="display: flex; align-items: center; background: #f1f5f9; padding: 6px 15px; border-radius: 50px; width: 45%; max-width: 500px;">
+            <input type="text" placeholder="ابحث عن الدواء، الفيتامينات، أو منتجات العناية..." style="width: 100%; border: none; background: transparent; outline: none; padding: 6px; font-size: 0.95rem;">
+            <button style="border: none; background: #16a34a; color: white; padding: 8px 14px; border-radius: 50px; cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+        <div class="nav-icons" style="display: flex; align-items: center; gap: 20px;">
+            <a href="cart.html" class="icon-link" style="color: #1e3a8a; font-size: 1.4rem; position: relative; text-decoration: none;">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="badge" style="position: absolute; top: -8px; right: -10px; background: #ef4444; color: white; font-size: 0.75rem; padding: 2px 6px; border-radius: 50%; font-weight: bold;">0</span>
+            </a>
+            <a href="admin.html" class="icon-link" style="color: #1e3a8a; font-size: 1.4rem;"><i class="fa-solid fa-user-gear"></i></a>
         </div>
     </header>
 
-    <!-- سلايدر العروض العلوي (Hero Banner) -->
-    <section class="hero-banner">
-        <div class="hero-content">
-            <span class="tag">عروض الأسبوع للمكملات</span>
-            <h1>صحتك ونشاطك يبدآن من هنا</h1>
-            <p>خصومات تصل إلى 30% على أشهر ماركات الفيتامينات العالمية والمحلية.</p>
-            <a href="#products" class="btn-shop">تسوق العروض الآن <i class="fa-solid fa-arrow-left"></i></a>
+    <section class="hero-banner" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 60px 5%; display: flex; align-items: center; justify-content: space-between; min-height: 250px;">
+        <div class="hero-text" style="max-width: 600px;">
+            <span style="background: #16a34a; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold;">عروض الأسبوع للمكملات</span>
+            <h1 style="color: #1e3a8a; font-size: 2.5rem; margin: 15px 0;">صحتك ونشاطك يبدآن من هنا</h1>
+            <p style="color: #475569; font-size: 1.1rem; margin-bottom: 25px;">خصومات تصل إلى 30% على أشهر ماركات الفيتامينات العالمية والمحلية.</p>
+            <a href="#products" class="btn-shop" style="background: #16a34a; color: white; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">تسوق العروض الآن <i class="fa-solid fa-arrow-left"></i></a>
         </div>
     </section>
 
-    <!-- أقسام التسوق السريعة -->
-    <section class="categories-section">
-        <h2 class="section-title">تسوّق حسب القسم</h2>
-        <div class="categories-grid">
-            <div class="cat-card"><i class="fa-solid fa-capsules"></i><span>الأدوية والمستلزمات</span></div>
-            <div class="cat-card"><i class="fa-solid fa-prescription-bottle-medical"></i><span>الفيتامينات</span></div>
-            <div class="cat-card"><i class="fa-solid fa-pump-medical"></i><span>العناية بالبشرة</span></div>
-            <div class="cat-card"><i class="fa-solid fa-baby"></i><span>العناية بالأم والطفل</span></div>
+    <section class="categories-section" style="padding: 40px 5%; text-align: center;">
+        <h2 style="color: #1e3a8a; margin-bottom: 30px;">تسوق حسب القسم</h2>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 140px; cursor: pointer;"><i class="fa-solid fa-pills" style="font-size: 2rem; color: #16a34a; margin-bottom: 10px;"></i><p style="font-weight: bold; font-size: 0.9rem;">الأدوية</p></div>
+            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 140px; cursor: pointer;"><i class="fa-solid fa-bottle-droplet" style="font-size: 2rem; color: #16a34a; margin-bottom: 10px;"></i><p style="font-weight: bold; font-size: 0.9rem;">الفيتامينات</p></div>
+            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 140px; cursor: pointer;"><i class="fa-solid fa-pump-medical" style="font-size: 2rem; color: #16a34a; margin-bottom: 10px;"></i><p style="font-weight: bold; font-size: 0.9rem;">العناية بالبشرة</p></div>
+            <div class="cat-card" style="background: white; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; width: 140px; cursor: pointer;"><i class="fa-solid fa-baby" style="font-size: 2rem; color: #16a34a; margin-bottom: 10px;"></i><p style="font-weight: bold; font-size: 0.9rem;">الأم والطفل</p></div>
         </div>
     </section>
 
-    <!-- شبكة المنتجات (Products Grid) -->
-    <section class="products-section" id="products">
-        <h2 class="section-title">العروض المميزة الحالية</h2>
-        <div class="products-grid">
+    <section class="products-section" id="products" style="padding: 20px 5%;">
+        <h2 style="color: #1e3a8a; text-align: center; margin-bottom: 30px;">العروض المميزة الحالية</h2>
+        <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;">
             
-            <!-- بطاقة منتج 1 -->
-            <div class="product-card">
-                <div class="badge-discount">خصم 15%</div>
-                <div class="product-img">
-                    <img src="assets/images/panadol.png" alt="بانادول اكسترا">
-                </div>
+            <div class="product-card" data-id="1" data-name="بانادول اكسترا" data-price="15" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; width: 280px; display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+                <div style="position: absolute; top: 10px; right: 10px; background: #ef4444; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">خصم 15%</div>
+                <div class="product-img" style="text-align: center; padding: 15px 0;"><img src="https://i.imgur.com/w1A7DBl.png" alt="بانادول اكسترا" style="max-height: 150px; object-fit: contain;"></div>
                 <div class="product-info">
-                    <span class="product-cat">المسكنات</span>
-                    <h3 class="product-title">بانادول اكسترا - 500 ملغ (24 قرص)</h3>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
-                    </div>
-                    <div class="price-box">
-                        <span class="new-price">15.00 ر.س</span>
-                        <span class="old-price">18.00 ر.س</span>
-                    </div>
-                    <button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> إضافة للسلة</button>
+                    <span style="color: #64748b; font-size: 0.85rem;">المسكنات</span>
+                    <h3 style="color: #1e3a8a; font-size: 1.05rem; margin: 8px 0; height: 44px; overflow: hidden;">بانادول اكسترا - 500 ملغ (24 قرص)</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                    <div style="margin-bottom: 15px;"><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem; margin-left: 8px;">15.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem;">18.00 ر.س</span></div>
+                    <button class="btn-add-cart" style="width: 100%; background: #1e3a8a; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer;"><i class="fa-solid fa-cart-plus"></i> إضافة للسلة</button>
                 </div>
             </div>
 
-            <!-- بطاقة منتج 2 -->
-            <div class="product-card">
-                <div class="badge-discount">أفضل مبيعاً</div>
-                <div class="product-img">
-                    <img src="assets/images/vitaminc.png" alt="فيتامين سي">
-                </div>
+            <div class="product-card" data-id="2" data-name="فيتامين سي الفوار" data-price="40" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; width: 280px; display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+                <div style="position: absolute; top: 10px; right: 10px; background: #16a34a; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold;">أفضل مبيعاً</div>
+                <div class="product-img" style="text-align: center; padding: 15px 0;"><img src="https://i.imgur.com/M6XW8N7.png" alt="فيتامين سي" style="max-height: 150px; object-fit: contain;"></div>
                 <div class="product-info">
-                    <span class="product-cat">الفيتامينات</span>
-                    <h3 class="product-title">فيتامين سي الفوار - 1000 ملغ</h3>
-                    <div class="rating">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <div class="price-box">
-                        <span class="new-price">40.00 ر.س</span>
-                    </div>
-                    <button class="btn-add-cart"><i class="fa-solid fa-cart-plus"></i> إضافة للسلة</button>
+                    <span style="color: #64748b; font-size: 0.85rem;">الفيتامينات</span>
+                    <h3 style="color: #1e3a8a; font-size: 1.05rem; margin: 8px 0; height: 44px; overflow: hidden;">فيتامين سي الفوار - 1000 ملغ</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div style="margin-bottom: 15px;"><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">40.00 ر.س</span></div>
+                    <button class="btn-add-cart" style="width: 100%; background: #1e3a8a; color: white; border: none; padding: 10px; border-radius: 6px; font-weight: bold; cursor: pointer;"><i class="fa-solid fa-cart-plus"></i> إضافة للسلة</button>
                 </div>
             </div>
 
         </div>
     </section>
 
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
