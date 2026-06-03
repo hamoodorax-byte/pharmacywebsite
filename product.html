@@ -1,117 +1,249 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <title>تفاصيل المنتج - الصيدلية الإلكترونية</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Live Interaction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0053a0;
+            --accent: #00b074;
+            --danger: #ff0055;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e1e8ed;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-btn {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+        .pdp-container {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+        @media(max-width: 992px) { .pdp-container { grid-template-columns: 1fr; } }
 
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css" />
+        .main-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e1e8ed;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        @media(max-width: 600px) { .main-card { grid-template-columns: 1fr; } }
+
+        .image-zone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-img-wrapper {
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .main-img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+        /* حركة الفلاش الجميلة عند تبديل الصور المصغرة */
+        .main-img.swap {
+            opacity: 0.3;
+            transform: scale(0.95);
+        }
+
+        .thumb-row {
+            display: flex;
+            gap: 10px;
+        }
+        .thumb {
+            width: 55px;
+            height: 55px;
+            border: 2px solid #ccd6dd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            object-fit: contain;
+            background: white;
+        }
+        .thumb:hover { border-color: var(--primary); }
+        .thumb.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 8px rgba(0, 83, 160, 0.2);
+        }
+
+        .info-zone { display: flex; flex-direction: column; }
+        .title { font-size: 1.3rem; color: #1a1a1a; margin: 10px 0; font-weight: 600; }
+        .price { font-size: 1.6rem; font-weight: bold; color: #1a1a1a; margin-bottom: 15px; }
+        
+        /* أكورديون تفاعلي يفتح ويغلق بسلاسة */
+        .accordion {
+            border-top: 1px solid #e1e8ed;
+            margin-top: 20px;
+            padding-top: 15px;
+        }
+        .acc-trigger {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        .acc-content {
+            max-height: 200px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            font-size: 0.85rem;
+            color: #555;
+            padding-top: 10px;
+        }
+        .acc-content.closed { max-height: 0; padding-top: 0; }
+
+        .side-card {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        .btn-add {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(0, 83, 160, 0.2);
+        }
+        .btn-add:hover {
+            background-color: #003d73;
+            transform: translateY(-2px);
+        }
+        .btn-add:active { transform: translateY(0); }
+    </style>
 </head>
-
 <body>
 
-  <header>
-    <div class="logo">Pharmacy</div>
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="products.html">المنتجات</a>
-      <a href="cart.html">سلة التسوق</a>
-      <a href="checkout.html">الدفع</a>
-      <a href="admin.html">الإدارة</a>
-    </nav>
-  </header>
+    <header>
+        <div style="font-weight: 900; color: var(--primary); font-size: 1.3rem;">Nahdi</div>
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Products</a>
+    </header>
 
-  <div class="main-container">
-
-    <div class="card">
-      <h2>تفاصيل المنتج</h2>
-    </div>
-
-    <div class="card" style="display: flex; gap: 20px; align-items: flex-start;">
-
-      <!-- معرض الصور -->
-      <div style="width: 40%;">
-
-        <!-- الصورة الرئيسية -->
-        <img id="mainImage"
-             src="assets/images/paracetamol.jpeg"
-             style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
-
-        <!-- الصور المصغرة -->
-        <div style="display: flex; gap: 10px;">
-          <img src="assets/images/paracetamol.jpeg"
-               onclick="changeImage(this.src)"
-               style="width: 30%; border-radius: 6px; cursor: pointer;">
-
-          <img src="assets/images/paracetamol-2.jpeg"
-               onclick="changeImage(this.src)"
-               style="width: 30%; border-radius: 6px; cursor: pointer;">
-
-          <img src="assets/images/paracetamol-3.jpeg"
-               onclick="changeImage(this.src)"
-               style="width: 30%; border-radius: 6px; cursor: pointer;">
+    <div class="pdp-container">
+        <div class="main-card">
+            <div class="image-zone">
+                <div class="main-img-wrapper">
+                    <img src="https://placehold.co/250x350/ffffff/7a152e?text=Sitoderm" class="main-img" id="viewImage">
+                </div>
+                <div class="thumb-row">
+                    <img src="https://placehold.co/250x350/ffffff/7a152e?text=Sitoderm" class="thumb active" onclick="changeImg(this.src, this)">
+                    <img src="https://placehold.co/250x350/ffffff/0053a0?text=Side+View" class="thumb" onclick="changeImg(this.src, this)">
+                    <img src="https://placehold.co/250x350/ffffff/00b074?text=Usage" class="thumb" onclick="changeImg(this.src, this)">
+                </div>
+            </div>
+            
+            <div class="info-zone">
+                <span style="color:var(--primary); font-size:0.8rem; font-weight:600;">Burn & Wound Care</span>
+                <h1 class="title">Nahdi-Burn-Relief-Ointment-50-Gm-Sitoderm-Ointment</h1>
+                <div class="price">SR 76.50 <span style="background:var(--danger); color:white; font-size:0.7rem; padding:3px 8px; border-radius:10px; margin-left:10px;">50% OFF</span></div>
+                
+                <div class="accordion">
+                    <div class="acc-trigger" onclick="toggleAccordion()">
+                        <span>Product Details</span>
+                        <i class="fa-solid fa-chevron-up" id="accIcon"></i>
+                    </div>
+                    <div class="acc-content" id="accContent">
+                        <p>• <b>Brand:</b> Nahdi<br>• <b>Product Form:</b> Ointment<br>• <b>Product Type:</b> Treatment Ointment</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-      </div>
-
-      <!-- معلومات المنتج -->
-      <div style="width: 60%;">
-
-        <h3>باراسيتامول 500mg</h3>
-
-        <p style="margin: 10px 0; line-height: 1.8;">
-          باراسيتامول هو مسكن للآلام وخافض للحرارة يستخدم لعلاج الصداع، آلام العضلات،
-          آلام الظهر، آلام الأسنان، ونزلات البرد. يعتبر من أكثر الأدوية أمانًا عند استخدامه
-          بالجرعات الموصى بها.
-        </p>
-
-        <h4>المكونات:</h4>
-        <ul style="margin: 10px 0 20px 0; line-height: 1.8;">
-          <li>باراسيتامول 500mg</li>
-          <li>نشا</li>
-          <li>مغنيسيوم ستيرات</li>
-          <li>مكونات غير فعالة</li>
-        </ul>
-
-        <h4>التقييمات:</h4>
-        <p>⭐⭐⭐⭐☆ (4.5 من 5)</p>
-
-        <div style="margin: 20px 0;">
-          <h4>الكمية:</h4>
-          <button onclick="decreaseQty()" style="padding: 5px 10px;">-</button>
-          <span id="qty" style="margin: 0 15px; font-size: 18px;">1</span>
-          <button onclick="increaseQty()" style="padding: 5px 10px;">+</button>
+        <div class="side-card">
+            <p style="font-size:0.85rem; color:#333; margin-top:0; display:flex; justify-content:space-between;">
+                <span>Home delivery within 2 hours</span>
+                <span style="background:var(--accent); color:white; padding:2px 6px; font-size:0.65rem; font-weight:bold; border-radius:4px;">Express</span>
+            </p>
+            <button class="btn-add" onclick="triggerSuccessAnimation(this)">Add To Cart</button>
         </div>
-
-        <div class="price" style="font-size: 20px; margin: 15px 0;">السعر: 40 ريال</div>
-
-        <button class="btn btn-primary" onclick="location.href='cart.html'">إضافة إلى السلة</button>
-
-      </div>
-
     </div>
 
-  </div>
+    <script>
+        // تأثير السينما والتبديل الناعم للصور
+        function changeImg(src, thumbElement) {
+            const mainImg = document.getElementById('viewImage');
+            mainImg.classList.add('swap');
+            
+            setTimeout(() => {
+                mainImg.src = src;
+                mainImg.classList.remove('swap');
+            }, 150);
 
-  <footer>© 2026 الصيدلية الإلكترونية</footer>
+            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+            thumbElement.classList.add('active');
+        }
 
-  <script>
-    function changeImage(src) {
-      document.getElementById("mainImage").src = src;
-    }
+        // تأثير فتح وإغلاق صندوق التفاصيل بسلاسة (Accordion)
+        function toggleAccordion() {
+            const content = document.getElementById('accContent');
+            const icon = document.getElementById('accIcon');
+            content.classList.toggle('closed');
+            
+            if(content.classList.contains('closed')) {
+                icon.style.transform = "rotate(180deg)";
+            } else {
+                icon.style.transform = "rotate(0deg)";
+            }
+        }
 
-    function increaseQty() {
-      let q = document.getElementById("qty");
-      q.textContent = Number(q.textContent) + 1;
-    }
-
-    function decreaseQty() {
-      let q = document.getElementById("qty");
-      if (Number(q.textContent) > 1) {
-        q.textContent = Number(q.textContent) - 1;
-      }
-    }
-  </script>
-
+        // حركة نجاح إضافة المنتج وتغيير نص الزر لحظياً للتفاعل الجاذب للعميل
+        function triggerSuccessAnimation(btn) {
+            const originalText = btn.innerText;
+            btn.style.background = "var(--accent)";
+            btn.innerText = "✓ Added Successfully!";
+            
+            setTimeout(() => {
+                btn.style.background = "var(--primary)";
+                btn.innerText = originalText;
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
