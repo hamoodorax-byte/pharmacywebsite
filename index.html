@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* تحسينات مرنة مخصصة لشبكة المنتجات */
         .products-section {
             padding: 40px 5%;
             background-color: #f8fafc;
         }
-        #products-grid-container {
+        .products-grid {
             display: flex;
             justify-content: center;
             gap: 25px;
@@ -36,8 +35,20 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
+        .product-card img {
+            max-height: 140px; 
+            max-width: 100%; 
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
         .product-card:hover img {
             transform: scale(1.05);
+        }
+        .badge-discount {
+            position: absolute; top: 10px; right: 10px; background: #ef4444; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; z-index: 5;
+        }
+        .badge-best {
+            position: absolute; top: 10px; right: 10px; background: #16a34a; color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; z-index: 5;
         }
         .cat-card {
             transition: transform 0.2s, box-shadow 0.2s;
@@ -69,7 +80,7 @@
                 <i class="fa-solid fa-basket-shopping"></i>
                 <span class="badge" style="position: absolute; top: -8px; right: -10px; background: #ef4444; color: white; font-size: 0.75rem; padding: 2px 6px; border-radius: 50%; font-weight: bold;">0</span>
             </a>
-            <a href="admin.html" class="icon-link" style="color: #1e3a8a; font-size: 1.4rem;" title="لوحة الإدارة"><i class="fa-solid fa-user-gear"></i></a>
+            <a href="admin.html" class="icon-link" style="color: #1e3a8a; font-size: 1.4rem;"><i class="fa-solid fa-user-gear"></i></a>
         </div>
     </header>
 
@@ -107,8 +118,229 @@
     <section class="products-section" id="products">
         <h2 style="color: #1e3a8a; text-align: center; margin-bottom: 30px; font-weight: 700;">العروض المميزة الحالية</h2>
         
-        <div id="products-grid-container">
+        <div class="products-grid">
+            
+            <div class="product-card">
+                <div class="badge-discount">خصم 15%</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Panadol" alt="بانادول"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">المسكنات</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">بانادول اكسترا مسكن للألم - 24 قرص</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">15.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">18.00 ر.س</span></div>
+                </div>
             </div>
+
+            <div class="product-card">
+                <div class="badge-best">أفضل مبيعاً</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Vitamin+C" alt="فيتامين سي"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الفيتامينات</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">فيتامين سي الفوار 1000 ملغ لحماية المناعة</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">40.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-discount">عرض بطل</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Eucerin" alt="يوسيرين"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">العناية بالبشرة</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">كريم يوسيرين لترطيب وإصلاح البشرة الجافة</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">85.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">110.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-best">أساسي</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=NAN+Milk" alt="حليب نان"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الأم والطفل</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">حليب أطفال نان برو رقم 1 - 400 جرام</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">45.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-discount">خصم 16%</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Brufen" alt="بروفين"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الأدوية</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">شراب بروفين خافض للحرارة ومسكن للأطفال</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">12.50 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">15.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-best">موصى به</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Omega+3" alt="اوميجا"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الفيتامينات</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">أوميجـا 3 زيت السمك النقي المكثف 60 كبسولة</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">95.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">130.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-best">رائج الآن</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=La+Roche" alt="لاروش"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">العناية بالبشرة</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">غسول لـاروش بوزيه إيفاكلار تنقية البشرة الدهنية</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">120.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-discount">توفير</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Avent" alt="ايفينت"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الأم والطفل</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">لهاية إيفينت السيليكون المرنة اللطيفة - قطعتين</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">38.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">48.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-best">سعر ثابت</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Fevadol" alt="فيفادول"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">المسكنات</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">أقراص فيفادول لتخفيف الصداع 500 ملغ</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">11.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-discount">أعلى تقييم</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Centrum" alt="سنتروم"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الفيتامينات</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">مكمل غذائي سنتروم متكامل الفيتامينات والمعادن</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">55.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">70.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-discount">خصم خاص</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Regaine" alt="ريجين"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">العناية بالبشرة</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">بخاخ ريجين 5% المطور لإعادة إنبات الشعر</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">160.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">190.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-best">حجم جامبو</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Pampers" alt="بامبرز"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الأم والطفل</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">حفاضات بامبرز عناية مميزة فائقة الامتصاص مقاس 3</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">75.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-discount">موسمي</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Clarityn" alt="كلاريتين"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الأدوية</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">أقراص كلاريتين مضاد فعال لحساسية الجيوب الأنفية</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">22.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">28.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-best">طبيعي</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Magnesium" alt="مغنيسيوم"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الفيتامينات</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">مكمل المغنيسيوم بلس لدعم العضلات والنوم العميق</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">34.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-discount">1+1 مجاناً</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=QV+Lip" alt="كيو في"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">العناية بالبشرة</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">مرطب الشفاه الطبي المغذي من كيو في سيباميد</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">18.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">24.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-best">رعاية ناعمة</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Johnson" alt="جونسون"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الأم والطفل</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">بودرة جونسون الكلاسيكية الناعمة للأطفال</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">20.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-discount">الأكثر طلباً</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Contour" alt="كونتور"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الأدوية</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">شرائط قياس السكر في الدم كونتور - 50 شريط</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">115.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">140.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-best">سريع المفعول</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Zyrtec" alt="زيرتك"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الأدوية</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">أقراص زيرتك لمقاومة أعراض البرد والعطاس</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">18.50 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-discount">تلطيف</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Strepsils" alt="ستربسلز"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الأدوية</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">أقراص ستربسلز المص لتلطيف وعلاج آلام الحلق</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">16.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">20.00 ر.س</span></div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="badge-best">ضمان سنتين</div>
+                <div style="text-align: center; padding: 15px 0;"><img src="https://placehold.co/200x150/e8f5e9/16a34a?text=Omron" alt="أومرون"></div>
+                <div>
+                    <span style="color: #64748b; font-size: 0.85rem;">الأدوية</span>
+                    <h3 style="color: #1e3a8a; font-size: 1rem; margin: 8px 0; height: 44px; overflow: hidden;">جهاز قياس ضغط الدم أومرون الإلكتروني للذراع</h3>
+                    <div style="color: #f59e0b; font-size: 0.85rem; margin-bottom: 10px;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div><span style="color: #16a34a; font-weight: bold; font-size: 1.2rem;">290.00 ر.س</span><span style="color: #94a3b8; text-decoration: line-through; font-size: 0.9rem; margin-right: 8px;">350.00 ر.س</span></div>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <script src="assets/js/main.js"></script>
