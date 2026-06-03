@@ -4,47 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الصيدلية الإلكترونية | النخبة للرعاية الصحية</title>
-    <!-- ربط ملف الستايل الأساسي -->
+    
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- مكتبة FontAwesome للأيقونات -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* تصحيح وإجبار الخلفية العامة */
+        /* ستايل إضافي مخصص لضمان ثبات شكل العمودين على الجوال والكمبيوتر */
         body {
-            background-color: #f4f6f9 !important;
+            background-color: #f4f6f9 !important; /* خلفية مريحة تبرز الكروت البيضاء */
             margin: 0;
+            padding: 0;
             font-family: system-ui, -apple-system, sans-serif;
         }
+
+        /* حاوية القسم الرئيسي للمنتجات */
         .products-section {
             padding: 12px !important;
             box-sizing: border-box !important;
             display: block !important;
         }
+
         .section-title {
             color: #1e3a8a;
             font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
         }
-        
-        /* الحل الجذري: تحويل الشبكة إلى Flexbox مرن ومقاوم للتعارض */
-        .products-grid {
+
+        /* الحاوية السحرية لمنع تداخل المنتجات وجعلها عمودين متساويين 100% */
+        .custom-products-flex {
             display: flex !important;
             flex-direction: row !important;
-            flex-wrap: wrap !important; /* السماح بالعناصر بالنزول عند اكتمال منتجين */
-            gap: 10px !important; /* المسافة الثابتة بين الكرتين */
+            flex-wrap: wrap !important; /* للسماح بنزول العناصر بعد كل منتجين */
+            gap: 8px !important; /* مسافة ثابتة ومدروسة بين الكروت */
             justify-content: flex-start !important;
             width: 100% !important;
             box-sizing: border-box !important;
             padding: 0 !important;
             margin: 0 !important;
         }
-        
-        /* إجبار الكرت على أخذ نصف مساحة الشاشة واقتطاع مسافة الـ Gap */
-        .product-card {
+
+        /* ستايل كرت المنتج الاحترافي - زوايا دائرية، زر عائم، وتوزيع مرن */
+        .custom-product-card {
             background: #ffffff !important;
             border-radius: 12px !important;
             padding: 10px !important;
@@ -56,36 +61,37 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.02) !important;
             border: 1px solid #f1f5f9 !important;
             
-            /* السحر هنا: حساب العرض ليكون منتجين في السطر بالضبط */
-            width: calc(50% - 5px) !important; 
-            min-width: calc(50% - 5px) !important;
-            max-width: calc(50% - 5px) !important;
-            margin: 0 !important; /* تصفير أي هوامش خارجية قديمة */
+            /* حساب العرض بدقة ليظهر منتجان فقط في كل سطر على الجوال */
+            width: calc(50% - 4px) !important; 
+            min-width: calc(50% - 4px) !important;
+            max-width: calc(50% - 4px) !important;
+            margin: 0 !important;
         }
-        
-        /* تنسيق منطقة الصورة والمحاذاة */
-        .image-container {
+
+        /* حاوية الصورة لتوسيط صور الأدوية */
+        .custom-image-container {
             position: relative !important;
             text-align: center !important;
             background: #ffffff !important;
             padding: 5px 0 !important;
             margin-bottom: 8px !important;
-            height: 120px !important;
+            height: 115px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             width: 100% !important;
         }
-        .product-card img {
+
+        .custom-product-card img {
             max-height: 100% !important;
             max-width: 100% !important;
             object-fit: contain !important;
             display: block !important;
             margin: 0 auto !important;
         }
-        
-        /* أزرار المفضلة والإضافة العائمة */
-        .btn-wishlist {
+
+        /* أزرار التفاعل (المفضلة والإضافة ل السلة) */
+        .custom-btn-wishlist {
             position: absolute !important;
             top: 0 !important;
             right: 0 !important;
@@ -101,11 +107,12 @@
             cursor: pointer !important;
             z-index: 5 !important;
         }
-        .btn-add-float {
+
+        .custom-btn-add {
             position: absolute !important;
-            bottom: -4px !important;
+            bottom: -2px !important;
             left: 0 !important;
-            background: #1e56a0 !important;
+            background: #1e56a0 !important; /* لون أزرق جذاب ومتناسق مع شعار الصيدليات */
             color: #ffffff !important;
             border: none !important;
             width: 30px !important;
@@ -117,11 +124,11 @@
             font-size: 1rem !important;
             cursor: pointer !important;
             z-index: 5 !important;
-            box-shadow: 0 3px 6px rgba(30, 86, 160, 0.2) !important;
+            box-shadow: 0 2px 6px rgba(30, 86, 160, 0.2) !important;
         }
-        
-        /* شارة الخصم */
-        .badge-discount-tag {
+
+        /* شارات الخصم والتقييم وعلامة Express */
+        .custom-discount-tag {
             background: #e11d48 !important;
             color: #ffffff !important;
             font-size: 0.65rem !important;
@@ -133,10 +140,9 @@
             margin-bottom: 6px !important;
             width: fit-content !important;
         }
-        
-        /* تفاصيل النصوص والأسعار */
-        .product-title {
-            font-size: 0.8rem !important;
+
+        .custom-product-title {
+            font-size: 0.82rem !important;
             color: #334155 !important;
             line-height: 1.4 !important;
             height: 36px !important;
@@ -147,42 +153,48 @@
             -webkit-line-clamp: 2 !important;
             -webkit-box-orient: vertical !important;
         }
-        .price-row {
+
+        .custom-price-row {
             display: flex !important;
             align-items: baseline !important;
             gap: 4px !important;
             margin-bottom: 6px !important;
         }
-        .current-price {
+
+        .custom-current-price {
             color: #e11d48 !important;
             font-weight: 700 !important;
-            font-size: 0.9rem !important;
+            font-size: 0.95rem !important;
         }
-        .old-price {
+
+        .custom-old-price {
             color: #94a3b8 !important;
             text-decoration: line-through !important;
-            font-size: 0.72rem !important;
+            font-size: 0.75rem !important;
         }
-        .rating-express-row {
+
+        .custom-meta-row {
             display: flex !important;
             justify-content: space-between !important;
             align-items: center !important;
             margin-top: auto !important;
             width: 100% !important;
         }
-        .rating-box {
+
+        .custom-rating {
             display: flex !important;
             align-items: center !important;
             gap: 2px !important;
             color: #f59e0b !important;
-            font-size: 0.72rem !important;
+            font-size: 0.75rem !important;
             font-weight: bold !important;
         }
-        .express-badge {
+
+        .custom-express {
             background: #ecfdf5 !important;
             color: #10b981 !important;
             font-size: 0.62rem !important;
-            padding: 2px 4px !important;
+            padding: 2px 5px !important;
             border-radius: 4px !important;
             font-weight: 600 !important;
         }
@@ -190,12 +202,10 @@
 </head>
 <body>
 
-    <!-- شريط الإعلان العلوي -->
     <div style="background-color: #15803d; color: white; text-align: center; padding: 8px 0; font-size: 0.85rem; font-weight: bold;">
         توصيل مجاني للطلبات فوق 100 ريال سعودي
     </div>
 
-    <!-- شريط التنقل العلوي (Navbar) -->
     <header class="main-header" style="background: white; padding: 12px 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 1000;">
         <div class="logo" style="font-size: 1.3rem; font-weight: 800; color: #1e3a8a;">
             Pharmacy<span style="color: #16a34a;">Plus</span>
@@ -208,92 +218,87 @@
         </div>
     </header>
 
-    <!-- قســم المنتجات والعروض -->
-    <section class="products-section">
+    <section class="products-section" id="products">
         <div class="section-title">
             <h2>العروض الحالية المميزة</h2>
         </div>
         
-        <div class="products-grid">
+        <div class="custom-products-flex">
             
-            <!-- صنف 1 -->
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
+            <div class="custom-product-card">
+                <div class="custom-image-container">
+                    <button class="custom-btn-wishlist"><i class="fa-regular fa-heart"></i></button>
                     <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Panadol" alt="بانادول">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
+                    <button class="custom-btn-add"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div class="badge-discount-tag">وفر 15%</div>
-                <h3 class="product-title">بانادول اكسترا مسكن فعال سريع للألم وخافض حرارة - 24 قرص</h3>
-                <div class="price-row">
-                    <span class="current-price">15.00 ريال</span>
-                    <span class="old-price">18.00 ريال</span>
+                <div class="custom-discount-tag">وفر 15%</div>
+                <h3 class="custom-product-title">بانادول اكسترا مسكن فعال سريع للألم وخافض حرارة - 24 قرص</h3>
+                <div class="custom-price-row">
+                    <span class="custom-current-price">15.00 ريال</span>
+                    <span class="custom-old-price">18.00 ريال</span>
                 </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 5.0</div>
-                    <div class="express-badge">Express</div>
+                <div class="custom-meta-row">
+                    <div class="custom-rating"><i class="fa-solid fa-star"></i> 5.0</div>
+                    <div class="custom-express">Express</div>
                 </div>
             </div>
 
-            <!-- صنف 2 -->
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
+            <div class="custom-product-card">
+                <div class="custom-image-container">
+                    <button class="custom-btn-wishlist"><i class="fa-regular fa-heart"></i></button>
                     <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Vitamin+C" alt="فيتامين سي">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
+                    <button class="custom-btn-add"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div class="badge-discount-tag">وفر 20%</div>
-                <h3 class="product-title">فيتامين سي الفوار غني بالزنك لحماية المناعة اليومية - 20 قرص</h3>
-                <div class="price-row">
-                    <span class="current-price">40.00 ريال</span>
-                    <span class="old-price">50.00 ريال</span>
+                <div class="custom-discount-tag">وفر 20%</div>
+                <h3 class="custom-product-title">فيتامين سي الفوار غني بالزنك لحماية المناعة اليومية - 20 قرص</h3>
+                <div class="custom-price-row">
+                    <span class="custom-current-price">40.00 ريال</span>
+                    <span class="custom-old-price">50.00 ريال</span>
                 </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.8</div>
-                    <div class="express-badge">Express</div>
+                <div class="custom-meta-row">
+                    <div class="custom-rating"><i class="fa-solid fa-star"></i> 4.8</div>
+                    <div class="custom-express">Express</div>
                 </div>
             </div>
 
-            <!-- صنف 3 -->
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
+            <div class="custom-product-card">
+                <div class="custom-image-container">
+                    <button class="custom-btn-wishlist"><i class="fa-regular fa-heart"></i></button>
                     <img src="https://placehold.co/200x200/ffffff/1e56a0?text=Eucerin" alt="يوسيرين">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
+                    <button class="custom-btn-add"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div class="badge-discount-tag">وفر 22%</div>
-                <h3 class="product-title">كريم يوسيرين المطور لترطيب وإصلاح حاجز البشرة الجافة 100 مل</h3>
-                <div class="price-row">
-                    <span class="current-price">85.00 ريال</span>
-                    <span class="old-price">110.00 ريال</span>
+                <div class="custom-discount-tag">وفر 22%</div>
+                <h3 class="custom-product-title">كريم يوسيرين المطور لترطيب وإصلاح حاجز البشرة الجافة 100 مل</h3>
+                <div class="custom-price-row">
+                    <span class="custom-current-price">85.00 ريال</span>
+                    <span class="custom-old-price">110.00 ريال</span>
                 </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 4.9</div>
-                    <div class="express-badge">Express</div>
+                <div class="custom-meta-row">
+                    <div class="custom-rating"><i class="fa-solid fa-star"></i> 4.9</div>
+                    <div class="custom-express">Express</div>
                 </div>
             </div>
 
-            <!-- صنف 4 -->
-            <div class="product-card">
-                <div class="image-container">
-                    <button class="btn-wishlist"><i class="fa-regular fa-heart"></i></button>
+            <div class="custom-product-card">
+                <div class="custom-image-container">
+                    <button class="custom-btn-wishlist"><i class="fa-regular fa-heart"></i></button>
                     <img src="https://placehold.co/200x200/ffffff/1e56a0?text=NAN+Milk" alt="حليب نان">
-                    <button class="btn-add-float"><i class="fa-solid fa-plus"></i></button>
+                    <button class="custom-btn-add"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div class="badge-discount-tag">وفر 10%</div>
-                <h3 class="product-title">حليب أطفال نان برو غني بالفيتامينات المرحلة الأولى - 400 جرام</h3>
-                <div class="price-row">
-                    <span class="current-price">45.00 ريال</span>
-                    <span class="old-price">50.00 ريال</span>
+                <div class="custom-discount-tag">وفر 10%</div>
+                <h3 class="custom-product-title">حليب أطفال نان برو غني بالفيتامينات المرحلة الأولى - 400 جرام</h3>
+                <div class="custom-price-row">
+                    <span class="custom-current-price">45.00 ريال</span>
+                    <span class="custom-old-price">50.00 ريال</span>
                 </div>
-                <div class="rating-express-row">
-                    <div class="rating-box"><i class="fa-solid fa-star"></i> 5.0</div>
-                    <div class="express-badge">Express</div>
+                <div class="custom-meta-row">
+                    <div class="custom-rating"><i class="fa-solid fa-star"></i> 5.0</div>
+                    <div class="custom-express">Express</div>
                 </div>
             </div>
 
         </div>
     </section>
 
-</body>
+    </body>
 </html>
