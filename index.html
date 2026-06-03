@@ -2,382 +2,42 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الصيدلية الإلكترونية | النخبة للرعاية الصحية</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>متجر الرعاية العام | General Care</title>
     <style>
-        :root {
-            --primary: #0053a0;
-            --primary-dark: #003d73;
-            --accent: #00b074;
-            --danger: #ff0055;
-            --bg: #f4f6f9;
+        body { font-family: sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+            gap: 20px; 
         }
-
-        body {
-            background-color: var(--bg) !important;
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* شريط الإعلان العلوي */
-        .promo-bar {
-            background: linear-gradient(90deg, #15803d, #16a34a);
-            color: white;
-            text-align: center;
-            padding: 8px 0;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
-
-        /* شريط الملاحة الأساسي بالاسم الصحيح */
-        header {
-            background: white !important;
-            padding: 15px 5% !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: space-between !important;
-            border-bottom: 1px solid #e2e8f0 !important;
-            position: sticky !important;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.4rem !important;
-            font-weight: 800 !important;
-            color: var(--primary) !important;
-            text-decoration: none !important;
-        }
-
-        .cart-icon-wrapper {
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        
-        .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -10px;
-            background: var(--danger);
-            color: white;
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 50%;
-            font-weight: bold;
-        }
-
-        /* عودة التصميم القديم والواسع للمنتجات */
-        .n-section {
-            padding: 30px 5% !important;
-            box-sizing: border-box !important;
-        }
-
-        .n-grid {
-            display: grid !important;
-            grid-template-columns: repeat(4, 1fr) !important; /* 4 منتجات في الصف في الشاشات الكبيرة */
-            gap: 20px !important;
-            width: 100% !important;
-        }
-
-        @media (max-width: 1024px) {
-            .n-grid {
-                grid-template-columns: repeat(3, 1fr) !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .n-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 10px !important;
-            }
-        }
-
-        /* كرت المنتج المطور والتفاعلي */
-        .product-card {
-            background: white !important;
-            border-radius: 12px !important;
-            padding: 15px !important;
-            border: 1px solid #e1e8ed !important;
-            text-decoration: none !important;
-            color: inherit !important;
-            display: flex !important;
-            flex-direction: column !important;
-            position: relative !important;
-            transition: all 0.3s ease !important;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02) !important;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px) !important;
-            box-shadow: 0 10px 20px rgba(0, 52, 160, 0.06) !important;
-            border-color: var(--primary) !important;
-        }
-
-        .wishlist-btn {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #e1e8ed;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8899a6;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.2s;
-        }
-        
-        .wishlist-btn.active i {
-            color: var(--danger);
-            font-weight: 900;
-        }
-
-        .image-box {
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            background: #fff;
-        }
-        
-        .image-box img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-        }
-
-        .tag-promo {
-            background: var(--danger);
-            color: white;
-            font-size: 0.68rem;
-            padding: 3px 8px;
-            border-radius: 20px;
-            width: fit-content;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .title {
-            font-size: 0.85rem;
-            color: #334155;
-            margin: 4px 0 10px 0;
-            font-weight: 500;
-            line-height: 1.5;
-            height: 38px;
-            overflow: hidden;
-        }
-
-        .price-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 10px;
-            border-top: 1px dashed #f1f5f9;
-        }
-
-        .price {
-            font-size: 1.05rem;
-            font-weight: bold;
-            color: var(--danger);
-        }
-
-        .quick-add-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .quick-add-btn:hover {
-            background: var(--accent);
-        }
-
-        /* السلة الجانبية */
-        .cart-drawer {
-            position: fixed;
-            top: 0;
-            left: -350px;
-            width: 320px;
-            height: 100%;
-            background: white;
-            box-shadow: 5px 0 25px rgba(0,0,0,0.15);
-            z-index: 2000;
-            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .cart-drawer.open { left: 0; }
-        
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e1e8ed;
-            padding-bottom: 15px;
+        .product-card { 
+            background: white; 
+            padding: 15px; 
+            border-radius: 10px; 
+            text-align: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
         }
     </style>
 </head>
 <body>
 
-    <div class="promo-bar">توصيل مجاني للطلبات فوق 100 ريال سعودي</div>
-
-    <header>
-        <!-- إعادة اسم الصيدلية الأصلي الخاص بكِ -->
-        <a href="index.html" class="logo">النخبة <span style="color: var(--accent);">للرعاية الصحية</span></a>
-        
-        <div class="cart-icon-wrapper" onclick="toggleCart()">
-            <i class="fa-solid fa-basket-shopping fa-xl" style="color: var(--primary);"></i>
-            <div class="cart-badge" id="cartCount">0</div>
+    <h1 style="text-align:center;">جميع منتجاتنا</h1>
+    <div class="grid" id="productGrid">
         </div>
-    </header>
-
-    <section class="n-section">
-        <h2 style="color: var(--primary); font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; text-align: right;">
-            ✨ العروض الأكثر طلباً الحالية
-        </h2>
-        
-        <!-- شبكة المنتجات الكاملة التي تعود لتملأ الشاشة بالكامل -->
-        <div class="n-grid">
-            
-            <!-- منتج 1 -->
-            <div class="product-card">
-                <button class="wishlist-btn" onclick="toggleWishlist(event, this)">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
-                <a href="product.html" style="text-decoration:none; color:inherit;">
-                    <div class="image-box">
-                        <img src="https://placehold.co/250x250/ffffff/7a152e?text=Sitoderm+Ointment" alt="Sitoderm">
-                    </div>
-                    <div class="tag-promo">خصم 50% للثانية</div>
-                    <h3 class="title">مرهم النهدي لتخفيف وترطيب الحروق - سيتوديرم 50 جرام</h3>
-                </a>
-                <div class="price-section">
-                    <span class="price">76.50 ر.س</span>
-                    <button class="quick-add-btn" onclick="addToCart(event, 'مرهم سيتوديرم 50 جرام', '76.50')">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- منتج 2 -->
-            <div class="product-card">
-                <button class="wishlist-btn" onclick="toggleWishlist(event, this)">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
-                <a href="product.html" style="text-decoration:none; color:inherit;">
-                    <div class="image-box">
-                        <img src="https://placehold.co/250x250/ffffff/0053a0?text=Panadol+Extra" alt="Panadol">
-                    </div>
-                    <div class="tag-promo">الأكثر مبيعاً</div>
-                    <h3 class="title">بانادول اكسترا مسكن فعال سريع للألم وخافض حرارة</h3>
-                </a>
-                <div class="price-section">
-                    <span class="price">15.00 ر.س</span>
-                    <button class="quick-add-btn" onclick="addToCart(event, 'بانادول اكسترا', '15.00')">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- منتج 3 -->
-            <div class="product-card">
-                <button class="wishlist-btn" onclick="toggleWishlist(event, this)">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
-                <a href="product.html" style="text-decoration:none; color:inherit;">
-                    <div class="image-box">
-                        <img src="https://placehold.co/250x250/ffffff/00b074?text=Vitamin+C" alt="Vitamin C">
-                    </div>
-                    <div class="tag-promo">وفر 15%</div>
-                    <h3 class="title">مكمل غذائي فيتامين سي 1000 مجم لتعزيز المناعة</h3>
-                </a>
-                <div class="price-section">
-                    <span class="price">45.00 ر.س</span>
-                    <button class="quick-add-btn" onclick="addToCart(event, 'فيتامين سي 1000', '45.00')">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
-            <!-- منتج 4 -->
-            <div class="product-card">
-                <button class="wishlist-btn" onclick="toggleWishlist(event, this)">
-                    <i class="fa-regular fa-heart"></i>
-                </button>
-                <a href="product.html" style="text-decoration:none; color:inherit;">
-                    <div class="image-box">
-                        <img src="https://placehold.co/250x250/ffffff/e11d48?text=Sensodyne" alt="Sensodyne">
-                    </div>
-                    <div class="tag-promo">عناية متكاملة</div>
-                    <h3 class="title">معجون أسنان سنسوداين المطور لحماية الأسنان الحساسة</h3>
-                </a>
-                <div class="price-section">
-                    <span class="price">28.00 ر.س</span>
-                    <button class="quick-add-btn" onclick="addToCart(event, 'معجون سنسوداين', '28.00')">
-                        <i class="fa-solid fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- نافذة السلة الجانبية -->
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <h3 style="margin:0; color: var(--primary);">سلة التسوق</h3>
-            <button style="background:none; border:none; font-size:1.2rem; cursor:pointer;" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="cartContent" style="flex:1; overflow-y:auto; padding:15px 0; font-size:0.9rem; text-align:center; color:#737373;">
-            السلة فارغة حالياً.
-        </div>
-    </div>
 
     <script>
-        let count = 0;
-        function toggleCart() { document.getElementById('cartDrawer').classList.toggle('open'); }
-        
-        function addToCart(event, name, price) {
-            event.stopPropagation();
-            count++;
-            document.getElementById('cartCount').innerText = count;
-            document.getElementById('cartContent').innerHTML = `
-                <div style="display:flex; gap:10px; align-items:center; text-align:right; background:#f4f7f9; padding:10px; border-radius:8px;">
-                    <div>
-                        <div style="font-weight:bold; color:#1a1a1a; font-size:0.85rem;">${name}</div>
-                        <div style="color:var(--primary); font-weight:bold; font-size:0.85rem; margin-top:3px;">${price} ر.س</div>
-                    </div>
-                </div>
+        const grid = document.getElementById('productGrid');
+        // إنشاء 30 منتج باستخدام حلقة تكرارية
+        for (let i = 1; i <= 30; i++) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <img src="https://via.placeholder.com/150" alt="منتج">
+                <h3>منتج رقم ${i}</h3>
+                <p>السعر: ${i * 5} ر.س</p>
+                <button>إضافة للسلة</button>
             `;
-            document.getElementById('cartDrawer').classList.add('open');
-        }
-
-        function toggleWishlist(event, btn) {
-            event.preventDefault();
-            btn.classList.toggle('active');
-            const icon = btn.querySelector('i');
-            icon.className = btn.classList.contains('active') ? "fa-solid fa-heart" : "fa-regular fa-heart";
+            grid.appendChild(card);
         }
     </script>
 </body>
