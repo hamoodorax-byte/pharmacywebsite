@@ -3,169 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صيدلية دكتور حمود  | Hamood Pharmacy</title>
-    
+    <title>متجرنا المميز</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-    /* 1. هيكل الشبكة الذكي */
-    .n-grid {
-        display: grid;
-        /* هذا السطر يضمن ظهور منتجين في كل صف على الجوال، ويزيد العدد تلقائياً على الكمبيوتر */
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 12px;
-        padding: 10px;
-    }
+        :root { --primary: #2563eb; --accent: #10b981; --bg: #f8fafc; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding: 0; }
+        
+        .section-title { text-align: right; padding: 20px 5%; font-size: 1.2rem; color: #1e293b; }
 
-    /* 2. تصميم كرت المنتج ليطابق التطبيقات */
-    .product-card {
-        background: white;
-        border-radius: 10px;
-        padding: 10px;
-        border: 1px solid #e2e8f0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transition: transform 0.2s;
-    }
+        /* تنسيق الشبكة الاحترافي */
+        .n-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 15px;
+            padding: 10px 5%;
+        }
 
-    /* 3. تنسيق الصورة */
-    .image-box {
-        height: 120px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 8px;
-    }
-    .image-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        /* كرت المنتج بلمسة دافئة */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
-    /* 4. تنسيق النصوص */
-    .title { font-size: 0.8rem; color: #334155; margin: 5px 0; height: 35px; overflow: hidden; }
-    .price { font-weight: bold; color: #2563eb; font-size: 0.9rem; }
-    
-    /* 5. زر الإضافة */
-    .quick-add-btn {
-        background: #2563eb;
-        color: white;
-        border: none;
-        padding: 8px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 0.8rem;
-    }
-</style>
+        .image-box { height: 130px; display: flex; align-items: center; justify-content: center; }
+        .image-box img { max-width: 100%; max-height: 100%; border-radius: 10px; }
+
+        .title { font-size: 0.85rem; margin: 10px 0; height: 40px; overflow: hidden; color: #475569; }
+        .price { font-weight: bold; color: var(--primary); font-size: 1rem; }
+        
+        .add-btn {
+            background: var(--primary); color: white; border: none; padding: 8px; border-radius: 10px; cursor: pointer;
+            margin-top: 10px; transition: 0.3s;
+        }
+        .add-btn:active { transform: scale(0.95); }
+    </style>
 </head>
 <body>
 
-    <div class="promo-bar">توصيل مجاني للطلبات فوق 100 ريال - تسوق الآن من أقسامنا المتنوعة</div>
-
-    <header>
-        <!-- هوية متجر عامة واحترافية -->
-        <a href="index.html" class="logo">
-            <i class="fa-solid fa-leaf" style="color: var(--accent);"></i>
-            General <span style="color: var(--accent); font-weight: 400;">Care</span>
-        </a>
-        
-        <div class="cart-icon-wrapper" onclick="toggleCart()">
-            <i class="fa-solid fa-basket-shopping fa-xl" style="color: var(--primary);"></i>
-            <div class="cart-badge" id="cartCount">0</div>
-        </div>
-    </header>
-
-    <section class="n-section">
-        <h2 style="color: var(--primary-dark); font-size: 1.3rem; font-weight: 700; margin-bottom: 25px; text-align: right;">
-            ✨ تصفح جميع منتجاتنا
-        </h2>
-        
-        <!-- هنا سيتم توليد الـ 30 منتج تلقائياً عبر الجافاسكربت -->
-        <div class="n-grid" id="productGrid">
-            <!-- المنتجات ستظهر هنا -->
-        </div>
-    </section>
-
-    <!-- نافذة السلة الجانبية -->
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="cart-header">
-            <h3 style="margin:0; color: var(--primary);">سلة التسوق</h3>
-            <button style="background:none; border:none; font-size:1.2rem; cursor:pointer;" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="cartContent" style="flex:1; overflow-y:auto; padding:15px 0; font-size:0.9rem; text-align:center; color:#737373;">
-            السلة فارغة حالياً.
-        </div>
-    </div>
+    <h2 class="section-title"><i class="fa-solid fa-fire" style="color: #f59e0b;"></i> العروض الأكثر طلباً</h2>
+    <div class="n-grid" id="productGrid"></div>
 
     <script>
-        // دالة توليد 30 منتج تلقائياً
-        function renderProducts() {
-            const grid = document.getElementById('productGrid');
-            
-            // نماذج المنتجات الأساسية
-            const templates = [
-                { title: "كريم مرطب للعناية اليومية", price: "45.00", img: "https://placehold.co/250x250/ffffff/2563eb?text=Care+Cream", tag: "الأكثر مبيعاً" },
-                { title: "مكمل غذائي فيتامين سي 1000", price: "35.00", img: "https://placehold.co/250x250/ffffff/10b981?text=Vitamin+C", tag: "عرض خاص" },
-                { title: "غسول وجه منعش للصباح", price: "55.00", img: "https://placehold.co/250x250/ffffff/ef4444?text=Face+Wash", tag: "عناية متكاملة" },
-                { title: "مسكن آلام سريع المفعول", price: "15.00", img: "https://placehold.co/250x250/ffffff/8b5cf6?text=Pain+Relief", tag: "أساسي" },
-                { title: "قطرات مرطبة ومعقمة للعين", price: "28.00", img: "https://placehold.co/250x250/ffffff/0ea5e9?text=Eye+Drops", tag: "خصم 10%" },
-                { title: "معجون أسنان لحماية اللثة", price: "22.00", img: "https://placehold.co/250x250/ffffff/f59e0b?text=Toothpaste", tag: "جديد" }
-            ];
-
-            let html = '';
-            // تكرار الحلقة 30 مرة لإنشاء 30 منتج
-            for(let i = 0; i < 30; i++) {
-                // نأخذ بيانات المنتج بالتناوب من النماذج الستة
-                let item = templates[i % templates.length];
-                
-                html += `
-                <div class="product-card">
-                    <button class="wishlist-btn" onclick="toggleWishlist(event, this)">
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
-                    <a href="product.html" style="text-decoration:none; color:inherit;">
-                        <div class="image-box">
-                            <img src="${item.img}" alt="Product">
-                        </div>
-                        <div class="tag-promo">${item.tag}</div>
-                        <h3 class="title">${item.title} - الإصدار ${i + 1}</h3>
-                    </a>
-                    <div class="price-section">
-                        <span class="price">${item.price} ر.س</span>
-                        <button class="quick-add-btn" onclick="addToCart(event, '${item.title}', '${item.price}')">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
-                `;
-            }
-            grid.innerHTML = html;
-        }
-
-        // تشغيل الدالة فور فتح الصفحة
-        renderProducts();
-
-        // دوال السلة والمفضلة (نفس السابقة)
-        let count = 0;
-        function toggleCart() { document.getElementById('cartDrawer').classList.toggle('open'); }
-        
-        function addToCart(event, name, price) {
-            event.stopPropagation();
-            count++;
-            document.getElementById('cartCount').innerText = count;
-            document.getElementById('cartContent').innerHTML = `
-                <div style="display:flex; gap:10px; align-items:center; text-align:right; background:#f8fafc; padding:10px; border-radius:8px; margin-bottom:10px; border:1px solid #e2e8f0;">
-                    <div>
-                        <div style="font-weight:bold; color:#1e293b; font-size:0.85rem;">${name}</div>
-                        <div style="color:var(--primary); font-weight:bold; font-size:0.85rem; margin-top:3px;">${price} ر.س</div>
-                    </div>
-                </div>
+        const grid = document.getElementById('productGrid');
+        for (let i = 1; i <= 30; i++) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div class="image-box"><img src="https://via.placeholder.com/150?text=منتج+${i}" alt="منتج"></div>
+                <h3 class="title">منتج عناية صحي - إصدار ${i}</h3>
+                <div class="price">${(i * 5) + 20}.00 ر.س</div>
+                <button class="add-btn"><i class="fa-solid fa-cart-plus"></i> إضافة</button>
             `;
-            document.getElementById('cartDrawer').classList.add('open');
-        }
-
-        function toggleWishlist(event, btn) {
-            event.preventDefault();
-            btn.classList.toggle('active');
-            const icon = btn.querySelector('i');
-            icon.className = btn.classList.contains('active') ? "fa-solid fa-heart" : "fa-regular fa-heart";
+            grid.appendChild(card);
         }
     </script>
 </body>
