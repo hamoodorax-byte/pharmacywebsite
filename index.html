@@ -8,225 +8,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --primary: #2563eb; /* لون أزرق عام واحترافي */
-            --primary-dark: #1e40af;
-            --accent: #10b981; /* لون أخضر حيوي */
-            --danger: #ef4444;
-            --bg: #f8fafc;
-        }
+    /* 1. هيكل الشبكة الذكي */
+    .n-grid {
+        display: grid;
+        /* هذا السطر يضمن ظهور منتجين في كل صف على الجوال، ويزيد العدد تلقائياً على الكمبيوتر */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 12px;
+        padding: 10px;
+    }
 
-        body {
-            background-color: var(--bg);
-            margin: 0;
-            padding: 0;
-            font-family: system-ui, -apple-system, sans-serif;
-            overflow-x: hidden;
-        }
+    /* 2. تصميم كرت المنتج ليطابق التطبيقات */
+    .product-card {
+        background: white;
+        border-radius: 10px;
+        padding: 10px;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.2s;
+    }
 
-        /* شريط الإعلان العلوي */
-        .promo-bar {
-            background: linear-gradient(90deg, #0ea5e9, #2563eb);
-            color: white;
-            text-align: center;
-            padding: 8px 0;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
+    /* 3. تنسيق الصورة */
+    .image-box {
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+    .image-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-        /* شريط الملاحة الأساسي (الهوية العامة) */
-        header {
-            background: white;
-            padding: 15px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #e2e8f0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .cart-icon-wrapper {
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        
-        .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -10px;
-            background: var(--danger);
-            color: white;
-            font-size: 0.7rem;
-            padding: 2px 6px;
-            border-radius: 50%;
-            font-weight: bold;
-        }
-
-        .n-section {
-            padding: 40px 5%;
-            box-sizing: border-box;
-        }
-
-        /* الشبكة المتكيفة لعرض الـ 30 منتج بشكل مثالي */
-        .n-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 20px;
-            width: 100%;
-        }
-
-        /* كرت المنتج */
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            padding: 15px;
-            border: 1px solid #e2e8f0;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
-            border-color: var(--primary);
-        }
-
-        .wishlist-btn {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #e2e8f0;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.2s;
-        }
-        
-        .wishlist-btn.active i {
-            color: var(--danger);
-            font-weight: 900;
-        }
-
-        .image-box {
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            background: #fff;
-        }
-        
-        .image-box img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-        }
-
-        .tag-promo {
-            background: var(--accent);
-            color: white;
-            font-size: 0.68rem;
-            padding: 3px 8px;
-            border-radius: 20px;
-            width: fit-content;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .title {
-            font-size: 0.85rem;
-            color: #334155;
-            margin: 4px 0 10px 0;
-            font-weight: 600;
-            line-height: 1.5;
-            height: 38px;
-            overflow: hidden;
-        }
-
-        .price-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 10px;
-            border-top: 1px dashed #e2e8f0;
-        }
-
-        .price {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--primary-dark);
-        }
-
-        .quick-add-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .quick-add-btn:hover {
-            background: var(--accent);
-        }
-
-        /* السلة الجانبية */
-        .cart-drawer {
-            position: fixed;
-            top: 0;
-            left: -350px;
-            width: 320px;
-            height: 100%;
-            background: white;
-            box-shadow: 5px 0 25px rgba(0,0,0,0.15);
-            z-index: 2000;
-            transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .cart-drawer.open { left: 0; }
-        
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 15px;
-        }
-    </style>
+    /* 4. تنسيق النصوص */
+    .title { font-size: 0.8rem; color: #334155; margin: 5px 0; height: 35px; overflow: hidden; }
+    .price { font-weight: bold; color: #2563eb; font-size: 0.9rem; }
+    
+    /* 5. زر الإضافة */
+    .quick-add-btn {
+        background: #2563eb;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.8rem;
+    }
+</style>
 </head>
 <body>
 
